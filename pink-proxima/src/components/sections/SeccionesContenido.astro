@@ -5,6 +5,7 @@ import {
   puntosCriticos,
   procesoActual,
   flujoPropuesto,
+  textoPropuestaSolucion,
   camposRegistroDigital,
   camposRegistroUsuario,
   camposRegistroBicicleta,
@@ -123,6 +124,14 @@ const rutaConBase = (ruta: string) => `${import.meta.env.BASE_URL}${ruta.replace
         <p class="tag">Solucion propuesta</p>
         <h2>Flujo digital con QR y control asistido por guardias</h2>
       </div>
+      <article class="card solution-intro">
+        {textoPropuestaSolucion.map((parrafo) => (
+          <p>{parrafo}</p>
+        ))}
+        <p class="solution-intro-note">
+          Esta propuesta considera los siguientes elementos principales:
+        </p>
+      </article>
       <ol class="flow">
         {flujoPropuesto.map((step, idx) => (
           <li>

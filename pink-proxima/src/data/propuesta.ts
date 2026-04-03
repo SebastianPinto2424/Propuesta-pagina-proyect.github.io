@@ -85,6 +85,11 @@ export const flujoPropuesto = [
   'Consulta administrativa de historial, incidencias, reportes y demanda.',
 ];
 
+export const textoPropuestaSolucion = [
+  'Se propone el desarrollo de una aplicacion movil de control de acceso y retiro de bicicletas para los bicicleteros de la Universidad del Bio-Bio. Esta aplicacion permitira reemplazar el registro manual en papel de este proceso por un flujo digital, rapido, centralizado y con alta trazabilidad.',
+  'Esta aplicacion movil sera orientada a operar en formato multiplataforma, con el fin de que esta solucion tecnologica pueda utilizarse tanto desde una aplicacion para usuarios Android y iOS, como tambien desde un navegador web. Esto permitira su uso en distintos dispositivos moviles y computadores.',
+];
+
 export const camposRegistroDigital = [
   'Fecha',
   'Hora',

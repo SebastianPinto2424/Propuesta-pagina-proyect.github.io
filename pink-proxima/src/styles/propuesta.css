@@ -11,7 +11,6 @@
   min-height: 78px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
   gap: 1rem;
 }
 
@@ -41,8 +40,38 @@
   filter: brightness(0) saturate(100%) invert(100%) drop-shadow(0 14px 22px rgb(183 218 255 / 38%));
 }
 
-.btn-nav-toggle {
+.modos-app {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.38rem;
   margin-left: auto;
+  padding: 0.18rem;
+  border-radius: 999px;
+  border: 1px solid rgb(170 202 232 / 28%);
+  background: rgb(10 38 61 / 58%);
+}
+
+.modo-link {
+  text-decoration: none;
+  color: #c2d4e7;
+  font-size: 0.9rem;
+  font-weight: 700;
+  padding: 0.4rem 0.8rem;
+  border-radius: 999px;
+  transition: color 180ms ease, background-color 180ms ease;
+}
+
+.modo-link:hover {
+  color: #f1f8ff;
+  background: rgb(61 194 175 / 16%);
+}
+
+.modo-link.is-active {
+  color: #f1f8ff;
+  background: rgb(15 90 139 / 38%);
+}
+
+.btn-nav-toggle {
   cursor: pointer;
   display: inline-flex;
   align-items: center;
@@ -362,6 +391,22 @@ h2 {
   margin: 0;
   display: grid;
   gap: 0.82rem;
+}
+
+.solution-intro {
+  margin-bottom: 0.95rem;
+  display: grid;
+  gap: 0.65rem;
+}
+
+.solution-intro p {
+  margin: 0;
+  color: var(--muted);
+}
+
+.solution-intro-note {
+  font-weight: 700;
+  color: var(--primary-strong) !important;
 }
 
 .flow li,
@@ -767,13 +812,30 @@ tbody tr:hover {
 
 @media (max-width: 760px) {
   .nav-top {
-    min-height: 74px;
+    min-height: auto;
+    flex-wrap: wrap;
     align-items: center;
     flex-direction: row;
     padding: 0.65rem 0;
+    row-gap: 0.55rem;
+  }
+
+  .modos-app {
+    width: 100%;
+    order: 2;
+    margin-left: 0;
+  }
+
+  .modo-link {
+    flex: 1;
+    text-align: center;
+    font-size: 0.82rem;
+    padding: 0.4rem 0.56rem;
   }
 
   .btn-nav-toggle {
+    order: 1;
+    margin-left: auto;
     padding: 0.42rem 0.72rem;
     font-size: 0.86rem;
   }
