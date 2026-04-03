@@ -1,11 +1,475 @@
 ---
-import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+const painPoints = [
+  'Registro manual en papel y filas en horarios de alta demanda.',
+  'Error humano en datos de ingreso y salida.',
+  'Sin trazabilidad centralizada por usuario, bicicleta y guardia.',
+  'Dependencia total del guardia presente en el sector.',
+];
+
+const workflow = [
+  'El usuario se registra una sola vez y asocia su bicicleta.',
+  'La app genera un QR para el control de ingreso y retiro.',
+  'El guardia valida visualmente y escanea para confirmar la operacion.',
+  'El sistema guarda fecha, hora, usuario, bicicleta y estado de seguridad.',
+  'Administracion consulta historial, incidencias y uso en tiempo real.',
+];
+
+const modules = [
+  'Registro de usuarios',
+  'Registro de bicicletas',
+  'Generacion de codigo QR',
+  'Validacion por guardia',
+  'Control de estado por bicicletero',
+  'Operacion de respaldo sin QR',
+  'Historial de movimientos',
+  'Gestion de incidencias',
+  'Reportes de demanda y trazabilidad',
+];
 ---
 
-<Layout>
-	<Welcome />
+<Layout
+  title="BiciUBB Control | Propuesta de Proyecto"
+  description="Aplicacion multiplataforma para optimizar el ingreso y retiro de bicicletas en la Universidad del Bio-Bio."
+>
+  <header class="site-header">
+    <div class="container nav">
+      <a class="brand" href="#inicio">
+        <span class="brand-mark">B</span>
+        <span>BiciUBB Control</span>
+      </a>
+
+      <nav aria-label="Secciones">
+        <a href="#problema">Problema</a>
+        <a href="#solucion">Solucion</a>
+        <a href="#modulos">Modulos</a>
+        <a href="#objetivos">Objetivos</a>
+        <a href="#roadmap">Roadmap</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="inicio">
+    <section class="hero container">
+      <p class="eyebrow">Proyecto de titulo IECI | Universidad del Bio-Bio</p>
+      <h1>Control digital y trazabilidad para bicicleteros UBB</h1>
+      <p class="lead">
+        Propuesta de aplicacion multiplataforma para reemplazar el registro manual por un flujo
+        digital con QR, validacion asistida por guardias y visibilidad operativa en tiempo real.
+      </p>
+
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#solucion">Ver propuesta</a>
+        <a class="btn btn-outline" href="#roadmap">Ver plan 2026</a>
+      </div>
+
+      <div class="stats">
+        <article>
+          <strong>2</strong>
+          <span>bicicleteros operativos analizados</span>
+        </article>
+        <article>
+          <strong>9</strong>
+          <span>funcionalidades base definidas</span>
+        </article>
+        <article>
+          <strong>1</strong>
+          <span>MVP multiplataforma primer semestre</span>
+        </article>
+      </div>
+    </section>
+
+    <section id="problema" class="section container">
+      <div class="section-head">
+        <p class="tag">Contexto actual</p>
+        <h2>El proceso actual es manual, lento y con poca trazabilidad</h2>
+      </div>
+      <div class="grid two">
+        {painPoints.map((item) => (
+          <article class="card">
+            <p>{item}</p>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <section id="solucion" class="section container">
+      <div class="section-head">
+        <p class="tag">Solucion propuesta</p>
+        <h2>Flujo operativo digital manteniendo control humano</h2>
+      </div>
+      <ol class="flow">
+        {workflow.map((step, idx) => (
+          <li>
+            <span>{idx + 1}</span>
+            <p>{step}</p>
+          </li>
+        ))}
+      </ol>
+    </section>
+
+    <section id="modulos" class="section container">
+      <div class="section-head">
+        <p class="tag">Alcance funcional</p>
+        <h2>Modulos claves de la aplicacion</h2>
+      </div>
+      <div class="grid three">
+        {modules.map((module) => (
+          <article class="card module">
+            <p>{module}</p>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <section id="objetivos" class="section container">
+      <div class="section-head">
+        <p class="tag">Objetivos del proyecto</p>
+        <h2>Enfoque en optimizacion operativa y gestion administrativa</h2>
+      </div>
+      <div class="grid two">
+        <article class="card">
+          <h3>Objetivo general</h3>
+          <p>
+            Analizar, disenar e implementar una solucion software multiplataforma para optimizar el
+            ingreso y retiro de bicicletas con identificacion QR y registro digital.
+          </p>
+        </article>
+        <article class="card">
+          <h3>Resultados esperados</h3>
+          <ul>
+            <li>Menor tiempo de atencion en accesos y retiros.</li>
+            <li>Menos errores de registro y mejor continuidad operativa.</li>
+            <li>Mayor trazabilidad por usuario, bicicleta, guardia y horario.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section id="roadmap" class="section container">
+      <div class="section-head">
+        <p class="tag">Plan de trabajo 2026</p>
+        <h2>Desarrollo incremental iterativo por etapas</h2>
+      </div>
+      <div class="timeline">
+        <article>
+          <h3>Abril - Julio</h3>
+          <p>Definicion de requisitos, diseno UX y desarrollo del MVP multiplataforma.</p>
+        </article>
+        <article>
+          <h3>Agosto - Octubre</h3>
+          <p>Integracion de historial, incidencias, trazabilidad y reportes administrativos.</p>
+        </article>
+        <article>
+          <h3>Noviembre - Diciembre</h3>
+          <p>Pruebas finales, ajustes de integracion, informe final y defensa del proyecto.</p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>BiciUBB Control | Sebastian Alexander Pinto Rivera | IECI UBB | 2026</p>
+    </div>
+  </footer>
 </Layout>
+
+<style>
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 30;
+    backdrop-filter: blur(14px);
+    background: rgb(244 247 251 / 76%);
+    border-bottom: 1px solid var(--line);
+  }
+
+  .nav {
+    min-height: 74px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+
+  .brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.65rem;
+    text-decoration: none;
+    font-weight: 700;
+    letter-spacing: 0.01em;
+  }
+
+  .brand-mark {
+    width: 34px;
+    height: 34px;
+    border-radius: 10px;
+    display: grid;
+    place-items: center;
+    color: white;
+    background: linear-gradient(145deg, var(--primary), #0d678f);
+    box-shadow: var(--shadow);
+  }
+
+  nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+  }
+
+  nav a {
+    text-decoration: none;
+    font-size: 0.95rem;
+    padding: 0.42rem 0.75rem;
+    border-radius: 999px;
+    color: var(--muted);
+  }
+
+  nav a:hover {
+    color: var(--ink);
+    background: rgb(11 75 111 / 10%);
+  }
+
+  .hero {
+    padding: 4.7rem 0 2rem;
+  }
+
+  .eyebrow {
+    display: inline-flex;
+    margin: 0;
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--primary);
+    font-weight: 700;
+  }
+
+  h1 {
+    margin: 0.75rem 0 0;
+    max-width: 20ch;
+    font-size: clamp(2rem, 4.5vw, 3.6rem);
+    line-height: 1.08;
+    letter-spacing: -0.02em;
+  }
+
+  .lead {
+    max-width: 68ch;
+    color: var(--muted);
+    font-size: 1.06rem;
+    margin-top: 1rem;
+  }
+
+  .hero-actions {
+    margin-top: 1.6rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+  }
+
+  .btn {
+    text-decoration: none;
+    border-radius: 11px;
+    font-weight: 600;
+    padding: 0.72rem 1.1rem;
+    transition: transform 140ms ease;
+  }
+
+  .btn:hover {
+    transform: translateY(-2px);
+  }
+
+  .btn-primary {
+    background: linear-gradient(145deg, var(--primary), var(--primary-strong));
+    color: #fff;
+  }
+
+  .btn-outline {
+    border: 1px solid var(--line);
+    color: var(--ink);
+    background: #fff;
+  }
+
+  .stats {
+    margin-top: 1.9rem;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.95rem;
+  }
+
+  .stats article {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 1rem;
+    display: grid;
+    gap: 0.25rem;
+  }
+
+  .stats strong {
+    font-size: 1.8rem;
+    color: var(--primary);
+  }
+
+  .stats span {
+    color: var(--muted);
+    font-size: 0.92rem;
+  }
+
+  .section {
+    padding: 2rem 0;
+  }
+
+  .section-head {
+    margin-bottom: 1rem;
+  }
+
+  .tag {
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-size: 0.77rem;
+    color: var(--accent);
+    font-weight: 700;
+  }
+
+  h2 {
+    margin: 0.5rem 0 0;
+    font-size: clamp(1.45rem, 3vw, 2.1rem);
+    line-height: 1.2;
+    max-width: 30ch;
+  }
+
+  .grid {
+    display: grid;
+    gap: 1rem;
+  }
+
+  .grid.two {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .grid.three {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .card {
+    background: var(--surface);
+    border-radius: var(--radius);
+    border: 1px solid var(--line);
+    padding: 1.05rem 1.1rem;
+    box-shadow: var(--shadow);
+  }
+
+  .card p {
+    margin: 0;
+    color: var(--muted);
+  }
+
+  .flow {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    gap: 0.8rem;
+  }
+
+  .flow li {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 0.8rem;
+    align-items: start;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 0.9rem;
+    box-shadow: var(--shadow);
+  }
+
+  .flow span {
+    width: 1.9rem;
+    height: 1.9rem;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    font-weight: 700;
+    color: white;
+    background: var(--primary);
+  }
+
+  .flow p {
+    margin: 0.1rem 0 0;
+    color: var(--muted);
+  }
+
+  .module {
+    border-left: 4px solid rgb(11 75 111 / 65%);
+  }
+
+  h3 {
+    margin: 0 0 0.6rem;
+    font-size: 1.06rem;
+  }
+
+  ul {
+    margin: 0;
+    padding-left: 1.2rem;
+    color: var(--muted);
+  }
+
+  .timeline {
+    display: grid;
+    gap: 0.9rem;
+  }
+
+  .timeline article {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 1rem 1.1rem;
+    box-shadow: var(--shadow);
+    border-left: 6px solid rgb(25 154 142 / 70%);
+  }
+
+  .timeline p {
+    margin: 0;
+    color: var(--muted);
+  }
+
+  .site-footer {
+    margin-top: 1.2rem;
+    border-top: 1px solid var(--line);
+    padding: 1.4rem 0 2rem;
+    color: var(--muted);
+    font-size: 0.94rem;
+  }
+
+  @media (max-width: 960px) {
+    .grid.two,
+    .grid.three,
+    .stats {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  @media (max-width: 700px) {
+    .nav {
+      align-items: start;
+      flex-direction: column;
+      padding: 0.9rem 0;
+    }
+
+    .hero {
+      padding-top: 3.3rem;
+    }
+
+    .grid.two,
+    .grid.three,
+    .stats {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
