@@ -27,6 +27,33 @@ const modules = [
   'Gestion de incidencias',
   'Reportes de demanda y trazabilidad',
 ];
+
+const benchmark = [
+  {
+    name: 'UdeCMovil (U. de Concepcion)',
+    model: 'QR integrado en app institucional + control automatizado',
+    userCost: 'Sin costo para comunidad interna',
+    fit: 'Integra muchas funciones universitarias, no se enfoca solo en operacion de bicicleteros.',
+  },
+  {
+    name: 'UH Go + Bikeep (University of Houston)',
+    model: 'App institucional conectada a racks inteligentes',
+    userCost: 'Sin costo para estudiantes y staff',
+    fit: 'Depende de infraestructura inteligente dedicada.',
+  },
+  {
+    name: 'UC Davis Bicycle Program',
+    model: 'Lockers y bike cages con modalidad de arriendo',
+    userCost: 'Tarifado por deposito y mensualidad',
+    fit: 'El foco es almacenamiento con cobro, no control operativo con guardia.',
+  },
+  {
+    name: 'Bikeep plataforma comercial',
+    model: 'Ecosistema propietario hardware + software',
+    userCost: 'Variable segun operador y plan',
+    fit: 'Orientada a modelo comercial, no a flujo especifico UBB.',
+  },
+];
 ---
 
 <Layout
@@ -44,6 +71,7 @@ const modules = [
         <a href="#problema">Problema</a>
         <a href="#solucion">Solucion</a>
         <a href="#modulos">Modulos</a>
+        <a href="#comparativa">Comparativa</a>
         <a href="#objetivos">Objetivos</a>
         <a href="#roadmap">Roadmap</a>
       </nav>
@@ -118,6 +146,29 @@ const modules = [
         {modules.map((module) => (
           <article class="card module">
             <p>{module}</p>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <section id="comparativa" class="section container">
+      <div class="section-head">
+        <p class="tag">Analisis comparativo</p>
+        <h2>La propuesta se ajusta al contexto UBB sin depender de hardware nuevo</h2>
+      </div>
+      <div class="grid two comparison">
+        {benchmark.map((item) => (
+          <article class="card comparison-item">
+            <h3>{item.name}</h3>
+            <p>
+              <strong>Modelo:</strong> {item.model}
+            </p>
+            <p>
+              <strong>Costo usuario:</strong> {item.userCost}
+            </p>
+            <p>
+              <strong>Diferencia clave:</strong> {item.fit}
+            </p>
           </article>
         ))}
       </div>
@@ -407,6 +458,19 @@ const modules = [
 
   .module {
     border-left: 4px solid rgb(11 75 111 / 65%);
+  }
+
+  .comparison {
+    align-items: stretch;
+  }
+
+  .comparison-item {
+    display: grid;
+    gap: 0.6rem;
+  }
+
+  .comparison-item strong {
+    color: var(--primary-strong);
   }
 
   h3 {
