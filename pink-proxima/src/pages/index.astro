@@ -225,6 +225,33 @@ const impact = [
   },
 ];
 
+const riskMitigations = [
+  {
+    risk: 'Fallas de acceso por falta de bateria o QR no disponible',
+    impact: 'Demora en retiro o ingreso de bicicletas en horas punta.',
+    mitigation: 'Operacion de respaldo manual por RUT, nombre o datos de bicicleta.',
+    level: 'Medio',
+  },
+  {
+    risk: 'Resistencia inicial al cambio desde registro en papel',
+    impact: 'Uso parcial del sistema durante primeras semanas.',
+    mitigation: 'Capacitacion breve a guardias y guia rapida para usuarios.',
+    level: 'Medio',
+  },
+  {
+    risk: 'Conectividad inestable en puntos de control',
+    impact: 'Interrupciones puntuales en actualizacion de estados.',
+    mitigation: 'Registro temporal y sincronizacion posterior cuando exista conexion.',
+    level: 'Medio',
+  },
+  {
+    risk: 'Inconsistencias en datos de usuarios o bicicletas',
+    impact: 'Problemas de trazabilidad y auditoria de eventos.',
+    mitigation: 'Validaciones en formularios y reglas de negocio en servicios centrales.',
+    level: 'Alto',
+  },
+];
+
 const references = [
   {
     label: 'UdeC | Enrolamiento para bicicleteros',
@@ -275,6 +302,7 @@ const references = [
         <a href="#comparativa">Comparativa</a>
         <a href="#metodologia">Metodologia</a>
         <a href="#impacto">Impacto</a>
+        <a href="#riesgos">Riesgos</a>
         <a href="#objetivos">Objetivos</a>
         <a href="#roadmap">Roadmap</a>
         <a href="#referencias">Referencias</a>
@@ -547,6 +575,31 @@ const references = [
           <article class="card impact-card">
             <h3>{item.metric}</h3>
             <p>{item.detail}</p>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <section id="riesgos" class="section container">
+      <div class="section-head">
+        <p class="tag">Riesgos y mitigaciones</p>
+        <h2>Gestiones preventivas para asegurar continuidad del proyecto</h2>
+      </div>
+      <div class="grid two risks">
+        {riskMitigations.map((item) => (
+          <article class="card risk-card">
+            <div class="risk-top">
+              <h3>{item.risk}</h3>
+              <span class={`risk-level ${item.level === 'Alto' ? 'high' : 'medium'}`}>
+                {item.level}
+              </span>
+            </div>
+            <p>
+              <strong>Impacto:</strong> {item.impact}
+            </p>
+            <p>
+              <strong>Mitigacion:</strong> {item.mitigation}
+            </p>
           </article>
         ))}
       </div>
@@ -959,6 +1012,46 @@ const references = [
     margin: 0.8rem 0 0;
     color: var(--muted);
     max-width: 78ch;
+  }
+
+  .risks {
+    align-items: stretch;
+  }
+
+  .risk-card {
+    display: grid;
+    gap: 0.65rem;
+  }
+
+  .risk-top {
+    display: flex;
+    align-items: start;
+    justify-content: space-between;
+    gap: 0.8rem;
+  }
+
+  .risk-level {
+    display: inline-flex;
+    border-radius: 999px;
+    padding: 0.18rem 0.58rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+
+  .risk-level.medium {
+    background: rgb(146 107 0 / 14%);
+    color: #915a00;
+  }
+
+  .risk-level.high {
+    background: rgb(180 35 35 / 14%);
+    color: #a82a2a;
+  }
+
+  .risk-card strong {
+    color: var(--primary-strong);
   }
 
   .method-grid {
