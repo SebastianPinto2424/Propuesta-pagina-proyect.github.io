@@ -2,260 +2,212 @@
 import Layout from '../layouts/Layout.astro';
 
 const painPoints = [
-  'Registro manual en papel y filas en horarios de alta demanda.',
-  'Error humano en datos de ingreso y salida.',
-  'Sin trazabilidad centralizada por usuario, bicicleta y guardia.',
-  'Dependencia total del guardia presente en el sector.',
+  'El registro manual en papel genera lentitud en horarios de alta demanda.',
+  'El proceso actual esta expuesto a error humano en ingreso y salida.',
+  'No existe trazabilidad centralizada en tiempo real del estado del bicicletero.',
+  'La operacion depende de la presencia del guardia y del traspaso informal de informacion.',
 ];
 
 const workflow = [
-  'El usuario se registra una sola vez y asocia su bicicleta.',
-  'La app genera un QR para el control de ingreso y retiro.',
-  'El guardia valida visualmente y escanea para confirmar la operacion.',
-  'El sistema guarda fecha, hora, usuario, bicicleta y estado de seguridad.',
-  'Administracion consulta historial, incidencias y uso en tiempo real.',
+  'Registro previo del usuario con sus datos institucionales.',
+  'Registro de una o mas bicicletas asociadas al usuario.',
+  'Generacion de codigo QR para ingreso y retiro.',
+  'Validacion por guardia mediante escaneo QR y verificacion visual.',
+  'Registro digital de fecha, hora, usuario, bicicleta, guardia y observaciones.',
+  'Consulta administrativa de historial, incidencias, reportes y demanda.',
 ];
 
 const modules = [
-  'Registro de usuarios',
+  'Registro previo de usuario',
   'Registro de bicicletas',
   'Generacion de codigo QR',
-  'Validacion por guardia',
-  'Control de estado por bicicletero',
-  'Operacion de respaldo sin QR',
-  'Historial de movimientos',
-  'Gestion de incidencias',
-  'Reportes de demanda y trazabilidad',
+  'Validacion asistida por guardia',
+  'Registro digital de ingreso y salida',
+  'Control de estado de cada bicicletero',
+  'Operacion manual de respaldo',
+  'Gestion administrativa y reportes',
+  'Atencion de situaciones excepcionales',
 ];
 
 const actors = [
   {
     role: 'Estudiantes y funcionarios',
-    action: 'Registran su perfil, asocian bicicleta y generan QR de acceso.',
-    value: 'Acceso mas rapido y menos repeticion de datos.',
+    action: 'Registran datos y bicicletas, y presentan QR para operar ingreso/retiro.',
+    value: 'Proceso mas rapido y con menor repeticion de datos.',
   },
   {
     role: 'Guardias de bicicletero',
-    action: 'Validan visualmente, escanean QR y aplican respaldo manual cuando corresponda.',
-    value: 'Control estandarizado con menor carga operativa.',
+    action: 'Escanean QR, validan correspondencia usuario-bicicleta y registran observaciones.',
+    value: 'Mayor control operativo con apoyo digital.',
   },
   {
-    role: 'Administracion universitaria',
-    action: 'Consulta historial, incidencias, capacidad y trazabilidad por periodo.',
-    value: 'Datos para seguimiento y toma de decisiones.',
-  },
-  {
-    role: 'Seguridad institucional',
-    action: 'Monitorea eventos y revisa movimientos en situaciones excepcionales.',
-    value: 'Mayor capacidad de respuesta y auditoria.',
+    role: 'Administracion',
+    action: 'Consulta movimientos, incidencias, trazabilidad y horarios de demanda.',
+    value: 'Mejor seguimiento para gestion del servicio.',
   },
 ];
 
 const businessRules = [
-  'Toda bicicleta operativa en el sistema debe quedar asociada a un usuario registrado.',
-  'El ingreso y retiro requieren validacion de guardia, incluso con uso de QR.',
-  'Si el QR falla o no hay bateria, se activa respaldo manual por RUT, nombre o datos de bicicleta.',
-  'Cada movimiento debe registrar fecha, hora, usuario, bicicleta, guardia y bicicletero.',
-  'El sistema debe registrar la condicion de seguridad al momento del ingreso (con o sin candado/U-Lock).',
-];
-
-const architectureLayers = [
-  {
-    layer: 'Experiencia de usuario',
-    description: 'Aplicacion movil para estudiantes/funcionarios y vista operativa para guardias.',
-  },
-  {
-    layer: 'Servicios de negocio',
-    description:
-      'Logica de ingreso/retiro, validacion QR, respaldo manual, control de estados e incidencias.',
-  },
-  {
-    layer: 'Trazabilidad y reportes',
-    description:
-      'Consolidacion de movimientos para historial, auditoria por guardia y analisis de demanda.',
-  },
-  {
-    layer: 'Persistencia de datos',
-    description:
-      'Almacenamiento estructurado de usuarios, bicicletas, accesos, observaciones y alertas.',
-  },
+  'El usuario debe registrarse una sola vez y asociar su(s) bicicleta(s).',
+  'Ingreso y retiro se validan con QR y verificacion del guardia.',
+  'Si no hay celular, bateria o QR, se usa respaldo manual por busqueda.',
+  'Cada movimiento registra usuario, bicicleta, guardia, fecha, hora y bicicletero.',
+  'Se registra condicion de seguridad de la bicicleta al ingreso.',
 ];
 
 const proposedStack = [
   {
-    block: 'Opcion 1 (prioridad alta)',
-    option: 'Flutter + Dart',
+    block: 'Tecnologia base indicada en la propuesta',
+    option: 'Kotlin Multiplatform en primera instancia',
     reason:
-      'Primera alternativa por su madurez multiplataforma, velocidad de desarrollo y consistencia visual en Android/iOS.',
-  },
-  {
-    block: 'Opcion 2 (prioridad media)',
-    option: 'Expo React Native + JavaScript',
-    reason:
-      'Segunda alternativa por su ecosistema amplio y facilidad de integracion con librerias para funcionalidades moviles.',
-  },
-  {
-    block: 'Opcion 3 (prioridad condicionada)',
-    option: 'Kotlin Multiplatform',
-    reason:
-      'Tercera alternativa para evaluar reutilizacion de logica entre plataformas cuando los requisitos tecnicos lo justifiquen.',
-  },
-  {
-    block: 'Criterio de seleccion',
-    option: 'Decision final segun requisitos del sistema',
-    reason:
-      'La eleccion definitiva del stack dependera del analisis funcional, no funcional y de restricciones detectadas durante el proyecto.',
+      'La propuesta establece KMP como alternativa inicial, con posibilidad de ajustar stack segun requerimientos y complejidad del analisis.',
   },
 ];
 
 const benchmark = [
   {
-    name: 'UdeCMovil (U. de Concepcion)',
-    model: 'QR integrado en app institucional + control automatizado',
-    userCost: 'Sin costo para comunidad interna',
-    fit: 'Integra muchas funciones universitarias, no se enfoca solo en operacion de bicicleteros.',
+    name: 'UdeCMovil (Universidad de Concepcion)',
+    model: 'Enrolamiento institucional + QR temporal para acceso.',
+    userCost: 'Sin costo para comunidad interna.',
+    fit: 'Integra bicicletero como parte de app institucional amplia.',
   },
   {
     name: 'UH Go + Bikeep (University of Houston)',
-    model: 'App institucional conectada a racks inteligentes',
-    userCost: 'Sin costo para estudiantes y staff',
+    model: 'App institucional integrada a racks inteligentes.',
+    userCost: 'Sin costo para estudiantes, faculty y staff.',
     fit: 'Depende de infraestructura inteligente dedicada.',
   },
   {
     name: 'UC Davis Bicycle Program',
-    model: 'Lockers y bike cages con modalidad de arriendo',
-    userCost: 'Tarifado por deposito y mensualidad',
-    fit: 'El foco es almacenamiento con cobro, no control operativo con guardia.',
+    model: 'Bike lockers y bike cages con modalidad de arriendo.',
+    userCost: 'Servicio tarifado segun modalidad.',
+    fit: 'Enfoque de almacenamiento con cobro.',
   },
   {
     name: 'Bikeep plataforma comercial',
-    model: 'Ecosistema propietario hardware + software',
-    userCost: 'Variable segun operador y plan',
-    fit: 'Orientada a modelo comercial, no a flujo especifico UBB.',
+    model: 'Solucion comercial hardware + software para operadores.',
+    userCost: 'Variable segun operador y plan.',
+    fit: 'Modelo comercial, no especifico al flujo UBB.',
   },
 ];
 
 const methodologySteps = [
   'Analisis del modulo a desarrollar',
   'Diseno de la solucion',
-  'Implementacion incremental',
-  'Pruebas funcionales por incremento',
-  'Evaluacion y ajustes continuos',
-  'Integracion progresiva del sistema',
+  'Implementacion del modulo',
+  'Pruebas funcionales',
+  'Evaluacion y ajustes',
+  'Integracion con el sistema existente',
 ];
 
 const activities = [
   {
     name: 'Actividad 1',
     title: 'Analisis del proceso actual',
-    detail: 'Levantamiento de flujo real, actores y problemas del registro manual.',
+    detail: 'Revision del flujo, actores, problemas y oportunidades de mejora.',
   },
   {
     name: 'Actividad 2',
     title: 'Revision de soluciones similares',
-    detail: 'Benchmark universitario y comercial para definir diferenciacion UBB.',
+    detail: 'Analisis comparativo de soluciones universitarias y externas.',
   },
   {
     name: 'Actividad 3',
     title: 'Definicion de requisitos',
-    detail: 'Requisitos funcionales, no funcionales y reglas de negocio del sistema.',
+    detail: 'Requisitos funcionales, no funcionales y reglas de negocio.',
   },
   {
     name: 'Actividad 4',
     title: 'Desarrollo del MVP',
-    detail: 'Construccion multiplataforma de registro, QR y control basico de ingreso/retiro.',
+    detail: 'Registro de usuarios, bicicletas, QR y control basico de ingreso/retiro.',
   },
   {
     name: 'Actividad 5',
     title: 'Integracion y evaluacion final',
-    detail: 'Historial, incidencias, reportes, pruebas finales e informe de titulacion.',
+    detail: 'Historial, incidencias, reportes, pruebas integrales e informe final.',
   },
 ];
 
 const roadPhases = [
   {
-    period: 'Abril - Julio',
-    focus: 'Definicion de requisitos, diseno UX y desarrollo del MVP multiplataforma.',
-  },
-  {
-    period: 'Agosto - Octubre',
-    focus: 'Integracion de historial, incidencias, trazabilidad y reportes administrativos.',
-  },
-  {
-    period: 'Noviembre - Diciembre',
-    focus: 'Pruebas finales, ajustes de integracion, informe final y defensa del proyecto.',
-  },
-];
-
-const schedule = [
-  {
-    period: 'Marzo - Abril 2026',
-    focus: 'Analisis inicial, benchmark y definicion de requisitos.',
-  },
-  {
-    period: 'Mayo - Julio 2026',
-    focus: 'Diseno e implementacion del producto minimo viable.',
+    period: 'Abril - Julio 2026',
+    focus: 'Definicion de requisitos, diseno UX y desarrollo del MVP.',
   },
   {
     period: 'Agosto - Octubre 2026',
-    focus: 'Integracion de modulos administrativos, reportes y trazabilidad.',
+    focus: 'Integracion de historial, incidencias, trazabilidad y reportes.',
   },
   {
     period: 'Noviembre - Diciembre 2026',
-    focus: 'Pruebas integrales, ajustes finales, informe y defensa.',
+    focus: 'Pruebas finales, ajustes de integracion, informe y defensa.',
   },
 ];
 
 const impact = [
   {
-    metric: 'Atencion mas rapida',
-    detail: 'Menos tiempo por operacion gracias al QR y datos precargados del usuario.',
+    metric: 'Rapidez operativa',
+    detail: 'Disminucion de tiempos de atencion con identificacion QR y datos precargados.',
   },
   {
     metric: 'Menor error humano',
-    detail: 'Validaciones digitales para evitar registros incompletos o inconsistentes.',
+    detail: 'Reemplazo del formulario manual por validaciones y estados definidos.',
   },
   {
-    metric: 'Trazabilidad total',
-    detail: 'Cada movimiento queda asociado a usuario, bicicleta, guardia, fecha y hora.',
+    metric: 'Mayor trazabilidad',
+    detail: 'Registro por usuario, bicicleta, guardia, fecha y hora.',
   },
   {
-    metric: 'Continuidad operativa',
-    detail: 'Estado del bicicletero visible en tiempo real, incluso con rotacion de guardias.',
+    metric: 'Continuidad del servicio',
+    detail: 'Estado del bicicletero consultable en cualquier momento.',
   },
 ];
 
-const riskMitigations = [
+const characterization = [
   {
-    risk: 'Fallas de acceso por falta de bateria o QR no disponible',
-    impact: 'Demora en retiro o ingreso de bicicletas en horas punta.',
-    mitigation: 'Operacion de respaldo manual por RUT, nombre o datos de bicicleta.',
-    level: 'Medio',
+    item: 'Experiencia en el problema',
+    level: 'Alta',
+    description: 'La necesidad es conocida y observable en el contexto universitario.',
   },
   {
-    risk: 'Resistencia inicial al cambio desde registro en papel',
-    impact: 'Uso parcial del sistema durante primeras semanas.',
-    mitigation: 'Capacitacion breve a guardias y guia rapida para usuarios.',
+    item: 'Tamano del problema',
     level: 'Medio',
+    description: 'Involucra varios actores y reglas, acotado al servicio de bicicleteros.',
   },
   {
-    risk: 'Conectividad inestable en puntos de control',
-    impact: 'Interrupciones puntuales en actualizacion de estados.',
-    mitigation: 'Registro temporal y sincronizacion posterior cuando exista conexion.',
-    level: 'Medio',
+    item: 'Complejidad del problema',
+    level: 'Media',
+    description: 'Flujo entendible, con escenarios y validaciones que deben considerarse.',
   },
   {
-    risk: 'Inconsistencias en datos de usuarios o bicicletas',
-    impact: 'Problemas de trazabilidad y auditoria de eventos.',
-    mitigation: 'Validaciones en formularios y reglas de negocio en servicios centrales.',
-    level: 'Alto',
+    item: 'Tamano del software',
+    level: 'Medio',
+    description: 'Incluye aplicacion, control QR, historial, incidencias y administracion.',
+  },
+  {
+    item: 'Complejidad del software',
+    level: 'Alta',
+    description: 'Requiere integrar modulos y mantener consistencia en trazabilidad.',
+  },
+  {
+    item: 'Experiencia en el software',
+    level: 'Baja/Media',
+    description: 'Se requiere aprendizaje progresivo en componentes nuevos de la solucion.',
+  },
+  {
+    item: 'Modularidad',
+    level: 'Alta',
+    description: 'El sistema puede dividirse en modulos funcionales relativamente independientes.',
   },
 ];
 
 const references = [
   {
-    label: 'UdeC | Enrolamiento para bicicleteros',
+    label: 'Universidad de Concepcion | Enrolamiento para Bicicleteros',
     href: 'https://vraeaweb.udec.cl/servicios/enrolamiento-para-bicicleteros/',
+  },
+  {
+    label: 'Noticias UdeC | Bicicleteros cerrados',
+    href: 'https://noticias.udec.cl/udec-inaugura-bicicleteros-cerrados-y-con-altos-estandares-de-seguridad-en-dos-puntos-del-campus-concepcion/',
   },
   {
     label: 'University of Houston | Bikeep CougarSAFE',
@@ -266,23 +218,19 @@ const references = [
     href: 'https://transportation.ucdavis.edu/bicycleprogram',
   },
   {
-    label: 'Bikeep | Smart bike parking platform',
+    label: 'Bikeep | Smart Bike Parking',
     href: 'https://bikeep.com/rent-smart-bike-parking-station',
   },
   {
-    label: 'App Store | UdeCMovil',
-    href: 'https://apps.apple.com/cl/app/udecm%C3%B3vil/id6670761228',
-  },
-  {
-    label: 'App Store | UH Go',
-    href: 'https://apps.apple.com/us/app/uh-go/id1350490089',
+    label: 'University of Illinois | Register Your Bike',
+    href: 'https://bike.illinois.edu/register-your-bike/',
   },
 ];
 ---
 
 <Layout
   title="BiciUBB Control | Propuesta de Proyecto"
-  description="Aplicacion multiplataforma para optimizar el ingreso y retiro de bicicletas en la Universidad del Bio-Bio."
+  description="Aplicacion multiplataforma para control y trazabilidad en bicicleteros de la Universidad del Bio-Bio."
 >
   <header class="site-header">
     <div class="container nav">
@@ -297,14 +245,13 @@ const references = [
         <a href="#modulos">Modulos</a>
         <a href="#actores">Actores</a>
         <a href="#reglas">Reglas</a>
-        <a href="#arquitectura">Arquitectura</a>
         <a href="#stack">Stack</a>
         <a href="#comparativa">Comparativa</a>
-        <a href="#metodologia">Metodologia</a>
-        <a href="#impacto">Impacto</a>
-        <a href="#riesgos">Riesgos</a>
         <a href="#objetivos">Objetivos</a>
+        <a href="#metodologia">Metodologia</a>
         <a href="#roadmap">Roadmap</a>
+        <a href="#impacto">Impacto</a>
+        <a href="#riesgo">Riesgo</a>
         <a href="#referencias">Referencias</a>
       </nav>
     </div>
@@ -312,39 +259,24 @@ const references = [
 
   <main id="inicio">
     <section class="hero container">
-      <p class="eyebrow">Propuesta de titulacion IECI | Universidad del Bio-Bio</p>
-      <h1>Plataforma de control y trazabilidad para bicicleteros UBB</h1>
+      <p class="eyebrow">Proyecto de titulacion IECI | Universidad del Bio-Bio</p>
+      <h1>Aplicacion de control y trazabilidad para bicicleteros UBB</h1>
       <p class="lead">
-        Aplicacion multiplataforma orientada a estudiantes, funcionarios y guardias para reemplazar
-        el registro manual por un flujo digital con QR y trazabilidad operativa en tiempo real.
+        Propuesta para digitalizar el ingreso y retiro de bicicletas con identificacion QR,
+        validacion por guardia y gestion administrativa con trazabilidad.
       </p>
-      <p class="status-note">Estado: propuesta funcional validada para desarrollo incremental 2026.</p>
+      <p class="status-note">Fuente: Propuesta presentada en marzo de 2026.</p>
 
       <div class="hero-actions">
-        <a class="btn btn-primary" href="#solucion">Ver propuesta</a>
+        <a class="btn btn-primary" href="#solucion">Ver solucion</a>
         <a class="btn btn-outline" href="#roadmap">Ver plan 2026</a>
-      </div>
-
-      <div class="stats">
-        <article>
-          <strong>2</strong>
-          <span>bicicleteros operativos analizados</span>
-        </article>
-        <article>
-          <strong>9</strong>
-          <span>funcionalidades base definidas</span>
-        </article>
-        <article>
-          <strong>1</strong>
-          <span>MVP multiplataforma primer semestre</span>
-        </article>
       </div>
     </section>
 
     <section id="problema" class="section container">
       <div class="section-head">
-        <p class="tag">Contexto actual</p>
-        <h2>El modelo actual limita velocidad de atencion y control operativo</h2>
+        <p class="tag">Problematica</p>
+        <h2>Dependencia de registro manual y falta de trazabilidad operativa</h2>
       </div>
       <div class="grid two">
         {painPoints.map((item) => (
@@ -358,7 +290,7 @@ const references = [
     <section id="solucion" class="section container">
       <div class="section-head">
         <p class="tag">Solucion propuesta</p>
-        <h2>Digitalizacion del flujo sin perder validacion humana en terreno</h2>
+        <h2>Flujo digital con QR y control asistido por guardias</h2>
       </div>
       <ol class="flow">
         {workflow.map((step, idx) => (
@@ -373,7 +305,7 @@ const references = [
     <section id="modulos" class="section container">
       <div class="section-head">
         <p class="tag">Alcance funcional</p>
-        <h2>Capacidades funcionales priorizadas para el MVP y la fase de expansion</h2>
+        <h2>Funciones principales definidas en la propuesta</h2>
       </div>
       <div class="grid three">
         {modules.map((module) => (
@@ -386,18 +318,18 @@ const references = [
 
     <section id="actores" class="section container">
       <div class="section-head">
-        <p class="tag">Actores del sistema</p>
-        <h2>Roles operativos que participan en el flujo diario de bicicleteros</h2>
+        <p class="tag">Actores</p>
+        <h2>Participantes del proceso de bicicleteros</h2>
       </div>
       <div class="grid two actors">
         {actors.map((actor) => (
           <article class="card actor-card">
             <h3>{actor.role}</h3>
             <p>
-              <strong>Rol operativo:</strong> {actor.action}
+              <strong>Funcion:</strong> {actor.action}
             </p>
             <p>
-              <strong>Valor esperado:</strong> {actor.value}
+              <strong>Aporte:</strong> {actor.value}
             </p>
           </article>
         ))}
@@ -406,8 +338,8 @@ const references = [
 
     <section id="reglas" class="section container">
       <div class="section-head">
-        <p class="tag">Reglas operativas</p>
-        <h2>Lineamientos funcionales que sostienen la trazabilidad del servicio</h2>
+        <p class="tag">Reglas de operacion</p>
+        <h2>Lineamientos funcionales del control de ingreso y retiro</h2>
       </div>
       <ol class="rules">
         {businessRules.map((rule, idx) => (
@@ -419,42 +351,20 @@ const references = [
       </ol>
     </section>
 
-    <section id="arquitectura" class="section container">
-      <div class="section-head">
-        <p class="tag">Arquitectura funcional</p>
-        <h2>Capas definidas para sostener operacion diaria y crecimiento del sistema</h2>
-      </div>
-      <div class="architecture">
-        {architectureLayers.map((item, idx) => (
-          <article class="arch-item">
-            <span class="arch-index">{idx + 1}</span>
-            <div>
-              <h3>{item.layer}</h3>
-              <p>{item.description}</p>
-            </div>
-          </article>
-        ))}
-      </div>
-    </section>
-
     <section id="stack" class="section container">
       <div class="section-head">
-        <p class="tag">Stack tecnologico propuesto</p>
-        <h2>Base tecnica preliminar alineada con alcance de titulacion 2026</h2>
-        <p class="stack-note">
-          La seleccion final del stack se tomara en funcion de los requisitos funcionales, no
-          funcionales y restricciones tecnicas detectadas en la etapa de analisis.
-        </p>
+        <p class="tag">Stack propuesto</p>
+        <h2>Tecnologia indicada en la propuesta de titulacion</h2>
       </div>
       <div class="grid two">
         {proposedStack.map((item) => (
           <article class="card stack-card">
             <h3>{item.block}</h3>
             <p>
-              <strong>Propuesta:</strong> {item.option}
+              <strong>Base tecnica:</strong> {item.option}
             </p>
             <p>
-              <strong>Justificacion:</strong> {item.reason}
+              <strong>Nota:</strong> {item.reason}
             </p>
           </article>
         ))}
@@ -463,8 +373,8 @@ const references = [
 
     <section id="comparativa" class="section container">
       <div class="section-head">
-        <p class="tag">Analisis comparativo</p>
-        <h2>Benchmark de referencia para definir una solucion ajustada al contexto UBB</h2>
+        <p class="tag">Comparativa</p>
+        <h2>Analisis de soluciones universitarias y externas</h2>
       </div>
       <div class="grid two comparison">
         {benchmark.map((item) => (
@@ -477,7 +387,7 @@ const references = [
               <strong>Costo usuario:</strong> {item.userCost}
             </p>
             <p>
-              <strong>Diferencia clave:</strong> {item.fit}
+              <strong>Diferencia:</strong> {item.fit}
             </p>
           </article>
         ))}
@@ -486,23 +396,25 @@ const references = [
 
     <section id="objetivos" class="section container">
       <div class="section-head">
-        <p class="tag">Objetivos del proyecto</p>
-        <h2>Mejora de operacion diaria y soporte de gestion administrativa</h2>
+        <p class="tag">Objetivos</p>
+        <h2>Objetivo general y objetivos especificos del proyecto</h2>
       </div>
       <div class="grid two">
         <article class="card">
           <h3>Objetivo general</h3>
           <p>
             Analizar, disenar e implementar una solucion software multiplataforma para optimizar el
-            ingreso y retiro de bicicletas con identificacion QR y registro digital.
+            control de ingreso y retiro de bicicletas en los bicicleteros UBB.
           </p>
         </article>
         <article class="card">
-          <h3>Resultados esperados</h3>
+          <h3>Objetivos especificos</h3>
           <ul>
-            <li>Menor tiempo de atencion en accesos y retiros.</li>
-            <li>Menos errores de registro y mejor continuidad operativa.</li>
-            <li>Mayor trazabilidad por usuario, bicicleta, guardia y horario.</li>
+            <li>Analizar proceso actual, actores y debilidades.</li>
+            <li>Investigar y comparar soluciones existentes.</li>
+            <li>Definir requisitos y reglas de negocio.</li>
+            <li>Implementar MVP durante el primer semestre.</li>
+            <li>Integrar funciones complementarias en segundo semestre.</li>
           </ul>
         </article>
       </div>
@@ -510,10 +422,9 @@ const references = [
 
     <section id="metodologia" class="section container">
       <div class="section-head">
-        <p class="tag">Metodologia de desarrollo</p>
-        <h2>Implementacion incremental iterativa para validar valor en cada fase</h2>
+        <p class="tag">Metodologia</p>
+        <h2>Modelo incremental iterativo definido en la propuesta</h2>
       </div>
-
       <div class="method-grid">
         {methodologySteps.map((step, idx) => (
           <article class="method-step">
@@ -524,8 +435,8 @@ const references = [
       </div>
 
       <div class="section-head section-gap">
-        <p class="tag">Actividades principales</p>
-        <h2>Ejecucion por objetivos especificos del proyecto de titulo</h2>
+        <p class="tag">Actividades</p>
+        <h2>Plan de ejecucion por bloques de trabajo</h2>
       </div>
       <div class="grid two">
         {activities.map((act) => (
@@ -540,8 +451,8 @@ const references = [
 
     <section id="roadmap" class="section container">
       <div class="section-head">
-        <p class="tag">Plan de trabajo 2026</p>
-        <h2>Roadmap por fases con entregables tecnicos y academicos</h2>
+        <p class="tag">Programacion temporal</p>
+        <h2>Fases principales de trabajo para 2026</h2>
       </div>
       <div class="timeline">
         {roadPhases.map((phase, idx) => (
@@ -554,21 +465,12 @@ const references = [
           </article>
         ))}
       </div>
-
-      <div class="schedule">
-        {schedule.map((item) => (
-          <article>
-            <h3>{item.period}</h3>
-            <p>{item.focus}</p>
-          </article>
-        ))}
-      </div>
     </section>
 
     <section id="impacto" class="section container">
       <div class="section-head">
-        <p class="tag">Impacto esperado</p>
-        <h2>Resultados esperados para usuarios, seguridad y administracion institucional</h2>
+        <p class="tag">Beneficios esperados</p>
+        <h2>Resultados declarados en la justificacion del proyecto</h2>
       </div>
       <div class="grid two">
         {impact.map((item) => (
@@ -580,51 +482,34 @@ const references = [
       </div>
     </section>
 
-    <section id="riesgos" class="section container">
+    <section id="riesgo" class="section container">
       <div class="section-head">
-        <p class="tag">Riesgos y mitigaciones</p>
-        <h2>Gestiones preventivas para asegurar continuidad del proyecto</h2>
+        <p class="tag">Caracterizacion y riesgo</p>
+        <h2>El proyecto se clasifica con nivel de riesgo medio</h2>
       </div>
       <div class="grid two risks">
-        {riskMitigations.map((item) => (
+        {characterization.map((item) => (
           <article class="card risk-card">
             <div class="risk-top">
-              <h3>{item.risk}</h3>
-              <span class={`risk-level ${item.level === 'Alto' ? 'high' : 'medium'}`}>
-                {item.level}
-              </span>
+              <h3>{item.item}</h3>
+              <span class="risk-level">{item.level}</span>
             </div>
-            <p>
-              <strong>Impacto:</strong> {item.impact}
-            </p>
-            <p>
-              <strong>Mitigacion:</strong> {item.mitigation}
-            </p>
+            <p>{item.description}</p>
           </article>
         ))}
       </div>
-    </section>
-
-    <section class="section container">
-      <article class="cta-panel">
-        <p class="tag">Cierre de propuesta</p>
-        <h2>BiciUBB Control plantea una evolucion digital realista del servicio actual</h2>
+      <article class="risk-summary">
         <p>
-          La propuesta prioriza reutilizar la infraestructura existente de bicicleteros, mantener
-          la validacion asistida por guardias y agregar trazabilidad digital para una gestion mas
-          segura, rapida y medible durante 2026.
+          La propuesta concluye riesgo medio y valida el uso de metodologia incremental iterativa
+          para reducir riesgos, validar temprano y ajustar en cada iteracion.
         </p>
-        <div class="hero-actions">
-          <a class="btn btn-primary" href="#inicio">Volver al inicio</a>
-          <a class="btn btn-outline" href="#metodologia">Revisar metodologia</a>
-        </div>
       </article>
     </section>
 
     <section id="referencias" class="section container">
       <div class="section-head">
-        <p class="tag">Referencias principales</p>
-        <h2>Fuentes utilizadas para el analisis comparativo del proyecto</h2>
+        <p class="tag">Referencias</p>
+        <h2>Fuentes declaradas para el analisis de antecedentes</h2>
       </div>
       <div class="refs">
         {references.map((ref, idx) => (
@@ -717,8 +602,8 @@ const references = [
 
   h1 {
     margin: 0.75rem 0 0;
-    max-width: 20ch;
-    font-size: clamp(2rem, 4.5vw, 3.6rem);
+    max-width: 22ch;
+    font-size: clamp(2rem, 4.5vw, 3.35rem);
     line-height: 1.08;
     letter-spacing: -0.02em;
   }
@@ -767,33 +652,6 @@ const references = [
     background: #fff;
   }
 
-  .stats {
-    margin-top: 1.9rem;
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 0.95rem;
-  }
-
-  .stats article {
-    background: var(--surface);
-    border: 1px solid var(--line);
-    border-radius: var(--radius);
-    box-shadow: var(--shadow);
-    padding: 1rem;
-    display: grid;
-    gap: 0.25rem;
-  }
-
-  .stats strong {
-    font-size: 1.8rem;
-    color: var(--primary);
-  }
-
-  .stats span {
-    color: var(--muted);
-    font-size: 0.92rem;
-  }
-
   .section {
     padding: 2rem 0;
   }
@@ -815,7 +673,7 @@ const references = [
     margin: 0.5rem 0 0;
     font-size: clamp(1.45rem, 3vw, 2.1rem);
     line-height: 1.2;
-    max-width: 30ch;
+    max-width: 34ch;
   }
 
   .grid {
@@ -854,7 +712,8 @@ const references = [
     color: var(--muted);
   }
 
-  .flow {
+  .flow,
+  .rules {
     list-style: none;
     padding: 0;
     margin: 0;
@@ -862,7 +721,8 @@ const references = [
     gap: 0.8rem;
   }
 
-  .flow li {
+  .flow li,
+  .rules li {
     display: grid;
     grid-template-columns: auto 1fr;
     gap: 0.8rem;
@@ -874,7 +734,8 @@ const references = [
     box-shadow: var(--shadow);
   }
 
-  .flow span {
+  .flow span,
+  .rules span {
     width: 1.9rem;
     height: 1.9rem;
     border-radius: 50%;
@@ -885,7 +746,8 @@ const references = [
     background: var(--primary);
   }
 
-  .flow p {
+  .flow p,
+  .rules p {
     margin: 0.1rem 0 0;
     color: var(--muted);
   }
@@ -894,163 +756,24 @@ const references = [
     border-left: 4px solid rgb(11 75 111 / 65%);
   }
 
-  .comparison {
-    align-items: stretch;
-  }
-
-  .comparison-item {
-    display: grid;
-    gap: 0.6rem;
-  }
-
-  .comparison-item strong {
-    color: var(--primary-strong);
-  }
-
-  .actors {
-    align-items: stretch;
-  }
-
-  .actor-card {
-    display: grid;
-    gap: 0.6rem;
-  }
-
-  .actor-card strong {
-    color: var(--primary-strong);
-  }
-
-  .rules {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: grid;
-    gap: 0.75rem;
-  }
-
-  .rules li {
-    background: var(--surface);
-    border: 1px solid var(--line);
-    border-radius: var(--radius);
-    padding: 0.9rem 1rem;
-    box-shadow: var(--shadow);
-    display: grid;
-    grid-template-columns: auto 1fr;
-    gap: 0.7rem;
-    align-items: start;
-  }
-
-  .rules span {
-    width: 1.65rem;
-    height: 1.65rem;
-    border-radius: 50%;
-    display: grid;
-    place-items: center;
-    background: var(--primary);
-    color: #fff;
-    font-size: 0.82rem;
-    font-weight: 700;
-  }
-
-  .rules p {
-    margin: 0;
-    color: var(--muted);
-  }
-
-  .architecture {
-    display: grid;
-    gap: 0.75rem;
-  }
-
-  .arch-item {
-    background: var(--surface);
-    border: 1px solid var(--line);
-    border-radius: var(--radius);
-    padding: 0.9rem 1rem;
-    box-shadow: var(--shadow);
-    display: grid;
-    grid-template-columns: auto 1fr;
-    gap: 0.75rem;
-    align-items: start;
-    transition:
-      transform 180ms ease,
-      border-color 180ms ease;
-  }
-
-  .arch-item:hover {
-    transform: translateY(-3px);
-    border-color: rgb(11 75 111 / 35%);
-  }
-
-  .arch-index {
-    width: 1.7rem;
-    height: 1.7rem;
-    border-radius: 50%;
-    display: grid;
-    place-items: center;
-    background: var(--accent);
-    color: #fff;
-    font-size: 0.82rem;
-    font-weight: 700;
-  }
-
-  .arch-item p {
-    margin: 0;
-    color: var(--muted);
-  }
-
-  .stack-card {
-    display: grid;
-    gap: 0.6rem;
-  }
-
-  .stack-card strong {
-    color: var(--primary-strong);
-  }
-
-  .stack-note {
-    margin: 0.8rem 0 0;
-    color: var(--muted);
-    max-width: 78ch;
-  }
-
+  .comparison,
+  .actors,
   .risks {
     align-items: stretch;
   }
 
-  .risk-card {
+  .comparison-item,
+  .actor-card,
+  .stack-card,
+  .risk-card,
+  .activity-card {
     display: grid;
-    gap: 0.65rem;
+    gap: 0.6rem;
   }
 
-  .risk-top {
-    display: flex;
-    align-items: start;
-    justify-content: space-between;
-    gap: 0.8rem;
-  }
-
-  .risk-level {
-    display: inline-flex;
-    border-radius: 999px;
-    padding: 0.18rem 0.58rem;
-    font-size: 0.75rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-  }
-
-  .risk-level.medium {
-    background: rgb(146 107 0 / 14%);
-    color: #915a00;
-  }
-
-  .risk-level.high {
-    background: rgb(180 35 35 / 14%);
-    color: #a82a2a;
-  }
-
-  .risk-card strong {
+  .comparison-item strong,
+  .actor-card strong,
+  .stack-card strong {
     color: var(--primary-strong);
   }
 
@@ -1092,11 +815,6 @@ const references = [
 
   .section-gap {
     margin-top: 1.8rem;
-  }
-
-  .activity-card {
-    display: grid;
-    gap: 0.45rem;
   }
 
   .activity-label {
@@ -1169,47 +887,41 @@ const references = [
     color: var(--muted);
   }
 
-  .schedule {
-    margin-top: 1.2rem;
-    display: grid;
-    gap: 0.75rem;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .schedule article {
-    border-radius: var(--radius);
-    border: 1px dashed rgb(11 75 111 / 32%);
-    background: rgb(255 255 255 / 85%);
-    padding: 0.95rem 1rem;
-  }
-
-  .schedule p {
-    margin: 0;
-    color: var(--muted);
-  }
-
   .impact-card h3 {
     color: var(--primary-strong);
   }
 
-  .cta-panel {
-    border-radius: calc(var(--radius) + 6px);
+  .risk-top {
+    display: flex;
+    align-items: start;
+    justify-content: space-between;
+    gap: 0.8rem;
+  }
+
+  .risk-level {
+    display: inline-flex;
+    border-radius: 999px;
+    padding: 0.18rem 0.58rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    background: rgb(11 75 111 / 12%);
+    color: var(--primary-strong);
+  }
+
+  .risk-summary {
+    margin-top: 1rem;
+    border-radius: 16px;
     border: 1px solid rgb(11 75 111 / 20%);
-    background:
-      linear-gradient(180deg, rgb(255 255 255 / 95%), rgb(255 255 255 / 86%)),
-      linear-gradient(145deg, rgb(11 75 111 / 10%), rgb(25 154 142 / 12%));
+    background: rgb(255 255 255 / 88%);
     box-shadow: var(--shadow);
-    padding: 1.45rem;
+    padding: 1rem 1.1rem;
   }
 
-  .cta-panel h2 {
-    max-width: 32ch;
-  }
-
-  .cta-panel p {
+  .risk-summary p {
+    margin: 0;
     color: var(--muted);
-    max-width: 75ch;
-    margin: 0.9rem 0 0;
   }
 
   .refs {
@@ -1263,102 +975,17 @@ const references = [
   .hero .lead,
   .hero .status-note,
   .hero .hero-actions,
-  .hero .stats,
   .section .section-head,
   .flow li,
   .rules li,
-  .arch-item,
   .card,
   .method-step,
   .timeline-item,
-  .schedule article,
   .ref-item,
-  .cta-panel {
+  .risk-summary {
     opacity: 0;
     transform: translateY(14px);
     animation: fade-up 520ms ease forwards;
-  }
-
-  .hero .eyebrow {
-    animation-delay: 60ms;
-  }
-
-  .hero h1 {
-    animation-delay: 120ms;
-  }
-
-  .hero .lead {
-    animation-delay: 180ms;
-  }
-
-  .hero .status-note {
-    animation-delay: 230ms;
-  }
-
-  .hero .hero-actions {
-    animation-delay: 290ms;
-  }
-
-  .hero .stats {
-    animation-delay: 360ms;
-  }
-
-  .section .section-head {
-    animation-delay: 80ms;
-  }
-
-  .flow li:nth-child(1),
-  .card:nth-child(1),
-  .method-step:nth-child(1),
-  .timeline-item:nth-child(1),
-  .schedule article:nth-child(1),
-  .ref-item:nth-child(1) {
-    animation-delay: 100ms;
-  }
-
-  .flow li:nth-child(2),
-  .card:nth-child(2),
-  .method-step:nth-child(2),
-  .timeline-item:nth-child(2),
-  .schedule article:nth-child(2),
-  .ref-item:nth-child(2) {
-    animation-delay: 150ms;
-  }
-
-  .flow li:nth-child(3),
-  .card:nth-child(3),
-  .method-step:nth-child(3),
-  .timeline-item:nth-child(3),
-  .schedule article:nth-child(3),
-  .ref-item:nth-child(3) {
-    animation-delay: 200ms;
-  }
-
-  .flow li:nth-child(4),
-  .card:nth-child(4),
-  .method-step:nth-child(4),
-  .timeline-item:nth-child(4),
-  .schedule article:nth-child(4),
-  .ref-item:nth-child(4) {
-    animation-delay: 250ms;
-  }
-
-  .flow li:nth-child(5),
-  .card:nth-child(5),
-  .method-step:nth-child(5),
-  .ref-item:nth-child(5) {
-    animation-delay: 300ms;
-  }
-
-  .flow li:nth-child(6),
-  .card:nth-child(6),
-  .method-step:nth-child(6),
-  .ref-item:nth-child(6) {
-    animation-delay: 350ms;
-  }
-
-  .cta-panel {
-    animation-delay: 120ms;
   }
 
   @keyframes fade-up {
@@ -1375,9 +1002,7 @@ const references = [
   @media (max-width: 960px) {
     .grid.two,
     .grid.three,
-    .stats,
-    .method-grid,
-    .schedule {
+    .method-grid {
       grid-template-columns: 1fr 1fr;
     }
   }
@@ -1395,9 +1020,7 @@ const references = [
 
     .grid.two,
     .grid.three,
-    .stats,
-    .method-grid,
-    .schedule {
+    .method-grid {
       grid-template-columns: 1fr;
     }
   }
