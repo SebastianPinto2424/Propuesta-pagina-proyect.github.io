@@ -200,12 +200,13 @@ const references = [
 
   <main id="inicio">
     <section class="hero container">
-      <p class="eyebrow">Proyecto de titulo IECI | Universidad del Bio-Bio</p>
-      <h1>Control digital y trazabilidad para bicicleteros UBB</h1>
+      <p class="eyebrow">Propuesta de titulacion IECI | Universidad del Bio-Bio</p>
+      <h1>Plataforma de control y trazabilidad para bicicleteros UBB</h1>
       <p class="lead">
-        Propuesta de aplicacion multiplataforma para reemplazar el registro manual por un flujo
-        digital con QR, validacion asistida por guardias y visibilidad operativa en tiempo real.
+        Aplicacion multiplataforma orientada a estudiantes, funcionarios y guardias para reemplazar
+        el registro manual por un flujo digital con QR y trazabilidad operativa en tiempo real.
       </p>
+      <p class="status-note">Estado: propuesta funcional validada para desarrollo incremental 2026.</p>
 
       <div class="hero-actions">
         <a class="btn btn-primary" href="#solucion">Ver propuesta</a>
@@ -231,7 +232,7 @@ const references = [
     <section id="problema" class="section container">
       <div class="section-head">
         <p class="tag">Contexto actual</p>
-        <h2>El proceso actual es manual, lento y con poca trazabilidad</h2>
+        <h2>El modelo actual limita velocidad de atencion y control operativo</h2>
       </div>
       <div class="grid two">
         {painPoints.map((item) => (
@@ -245,7 +246,7 @@ const references = [
     <section id="solucion" class="section container">
       <div class="section-head">
         <p class="tag">Solucion propuesta</p>
-        <h2>Flujo operativo digital manteniendo control humano</h2>
+        <h2>Digitalizacion del flujo sin perder validacion humana en terreno</h2>
       </div>
       <ol class="flow">
         {workflow.map((step, idx) => (
@@ -260,7 +261,7 @@ const references = [
     <section id="modulos" class="section container">
       <div class="section-head">
         <p class="tag">Alcance funcional</p>
-        <h2>Modulos claves de la aplicacion</h2>
+        <h2>Capacidades funcionales priorizadas para el MVP y la fase de expansion</h2>
       </div>
       <div class="grid three">
         {modules.map((module) => (
@@ -274,7 +275,7 @@ const references = [
     <section id="comparativa" class="section container">
       <div class="section-head">
         <p class="tag">Analisis comparativo</p>
-        <h2>La propuesta se ajusta al contexto UBB sin depender de hardware nuevo</h2>
+        <h2>Benchmark de referencia para definir una solucion ajustada al contexto UBB</h2>
       </div>
       <div class="grid two comparison">
         {benchmark.map((item) => (
@@ -297,7 +298,7 @@ const references = [
     <section id="objetivos" class="section container">
       <div class="section-head">
         <p class="tag">Objetivos del proyecto</p>
-        <h2>Enfoque en optimizacion operativa y gestion administrativa</h2>
+        <h2>Mejora de operacion diaria y soporte de gestion administrativa</h2>
       </div>
       <div class="grid two">
         <article class="card">
@@ -321,7 +322,7 @@ const references = [
     <section id="metodologia" class="section container">
       <div class="section-head">
         <p class="tag">Metodologia de desarrollo</p>
-        <h2>Modelo incremental iterativo para reducir riesgo y validar temprano</h2>
+        <h2>Implementacion incremental iterativa para validar valor en cada fase</h2>
       </div>
 
       <div class="method-grid">
@@ -351,7 +352,7 @@ const references = [
     <section id="roadmap" class="section container">
       <div class="section-head">
         <p class="tag">Plan de trabajo 2026</p>
-        <h2>Desarrollo incremental iterativo por etapas</h2>
+        <h2>Roadmap por fases con entregables tecnicos y academicos</h2>
       </div>
       <div class="timeline">
         {roadPhases.map((phase, idx) => (
@@ -378,7 +379,7 @@ const references = [
     <section id="impacto" class="section container">
       <div class="section-head">
         <p class="tag">Impacto esperado</p>
-        <h2>Beneficios operativos y de gestion para la comunidad universitaria</h2>
+        <h2>Resultados esperados para usuarios, seguridad y administracion institucional</h2>
       </div>
       <div class="grid two">
         {impact.map((item) => (
@@ -515,6 +516,13 @@ const references = [
     margin-top: 1rem;
   }
 
+  .status-note {
+    margin: 0.85rem 0 0;
+    color: var(--primary-strong);
+    font-size: 0.92rem;
+    font-weight: 600;
+  }
+
   .hero-actions {
     margin-top: 1.6rem;
     display: flex;
@@ -615,6 +623,16 @@ const references = [
     border: 1px solid var(--line);
     padding: 1.05rem 1.1rem;
     box-shadow: var(--shadow);
+    transition:
+      transform 180ms ease,
+      border-color 180ms ease,
+      box-shadow 180ms ease;
+  }
+
+  .card:hover {
+    transform: translateY(-3px);
+    border-color: rgb(11 75 111 / 35%);
+    box-shadow: 0 18px 32px rgb(8 36 60 / 14%);
   }
 
   .card p {
@@ -879,6 +897,118 @@ const references = [
     font-size: 0.94rem;
   }
 
+  .hero .eyebrow,
+  .hero h1,
+  .hero .lead,
+  .hero .status-note,
+  .hero .hero-actions,
+  .hero .stats,
+  .section .section-head,
+  .flow li,
+  .card,
+  .method-step,
+  .timeline-item,
+  .schedule article,
+  .ref-item,
+  .cta-panel {
+    opacity: 0;
+    transform: translateY(14px);
+    animation: fade-up 520ms ease forwards;
+  }
+
+  .hero .eyebrow {
+    animation-delay: 60ms;
+  }
+
+  .hero h1 {
+    animation-delay: 120ms;
+  }
+
+  .hero .lead {
+    animation-delay: 180ms;
+  }
+
+  .hero .status-note {
+    animation-delay: 230ms;
+  }
+
+  .hero .hero-actions {
+    animation-delay: 290ms;
+  }
+
+  .hero .stats {
+    animation-delay: 360ms;
+  }
+
+  .section .section-head {
+    animation-delay: 80ms;
+  }
+
+  .flow li:nth-child(1),
+  .card:nth-child(1),
+  .method-step:nth-child(1),
+  .timeline-item:nth-child(1),
+  .schedule article:nth-child(1),
+  .ref-item:nth-child(1) {
+    animation-delay: 100ms;
+  }
+
+  .flow li:nth-child(2),
+  .card:nth-child(2),
+  .method-step:nth-child(2),
+  .timeline-item:nth-child(2),
+  .schedule article:nth-child(2),
+  .ref-item:nth-child(2) {
+    animation-delay: 150ms;
+  }
+
+  .flow li:nth-child(3),
+  .card:nth-child(3),
+  .method-step:nth-child(3),
+  .timeline-item:nth-child(3),
+  .schedule article:nth-child(3),
+  .ref-item:nth-child(3) {
+    animation-delay: 200ms;
+  }
+
+  .flow li:nth-child(4),
+  .card:nth-child(4),
+  .method-step:nth-child(4),
+  .timeline-item:nth-child(4),
+  .schedule article:nth-child(4),
+  .ref-item:nth-child(4) {
+    animation-delay: 250ms;
+  }
+
+  .flow li:nth-child(5),
+  .card:nth-child(5),
+  .method-step:nth-child(5),
+  .ref-item:nth-child(5) {
+    animation-delay: 300ms;
+  }
+
+  .flow li:nth-child(6),
+  .card:nth-child(6),
+  .method-step:nth-child(6),
+  .ref-item:nth-child(6) {
+    animation-delay: 350ms;
+  }
+
+  .cta-panel {
+    animation-delay: 120ms;
+  }
+
+  @keyframes fade-up {
+    from {
+      opacity: 0;
+      transform: translateY(14px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
   @media (max-width: 960px) {
     .grid.two,
     .grid.three,
@@ -906,6 +1036,16 @@ const references = [
     .method-grid,
     .schedule {
       grid-template-columns: 1fr;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation: none !important;
+      transition: none !important;
+      scroll-behavior: auto !important;
     }
   }
 </style>
