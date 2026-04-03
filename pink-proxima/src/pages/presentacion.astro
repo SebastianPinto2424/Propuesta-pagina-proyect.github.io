@@ -1,0 +1,51 @@
+﻿---
+import Layout from '../layouts/Layout.astro';
+import EncabezadoSitio from '../components/sections/EncabezadoSitio.astro';
+import PieSitio from '../components/sections/PieSitio.astro';
+import '../styles/propuesta.css';
+
+const enlacePropuesta = `${import.meta.env.BASE_URL}`;
+---
+
+<Layout
+  title="UBBike | Presentacion"
+  description="Apartado reservado para la presentacion oficial del producto UBBike cuando la app este funcional."
+>
+  <EncabezadoSitio vistaActual="presentacion" mostrarNavegacionSecciones={false} />
+
+  <main id="inicio">
+    <section class="hero container">
+      <p class="eyebrow">Apartado en preparacion</p>
+      <h1>Presentacion UBBike</h1>
+      <p class="lead">
+        Este espacio queda reservado para la presentacion oficial de la aplicacion una vez que el
+        desarrollo funcional este completado.
+      </p>
+
+      <div class="grid two section-gap">
+        <article class="card">
+          <h3>Estado actual</h3>
+          <p>
+            En desarrollo. Se incorporaran capturas reales de la app, demo de flujo, arquitectura
+            tecnica y resultados de validacion.
+          </p>
+        </article>
+        <article class="card">
+          <h3>Contenido planificado</h3>
+          <ul>
+            <li>Presentacion del producto final UBBike.</li>
+            <li>Funciones implementadas y evidencias de uso.</li>
+            <li>Indicadores de desempeno y mejoras alcanzadas.</li>
+            <li>Proximos pasos y escalamiento institucional.</li>
+          </ul>
+        </article>
+      </div>
+
+      <div class="hero-actions">
+        <a class="btn btn-primary" href={enlacePropuesta}>Ir a la propuesta</a>
+      </div>
+    </section>
+  </main>
+
+  <PieSitio />
+</Layout>
