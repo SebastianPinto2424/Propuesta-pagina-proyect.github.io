@@ -284,7 +284,7 @@ export const puntosJustificacion = [
 
 export const pasosMetodologia = [
   'Analisis del modulo a desarrollar',
-  'Diseno de la solucion',
+  'Diseño de la solucion',
   'Implementacion del modulo',
   'Pruebas funcionales',
   'Evaluacion y ajustes',
@@ -365,8 +365,8 @@ export const desgloseActividades = [
   {
     title: 'Actividad 4 | Desarrollo del producto minimo viable',
     tasks: [
-      '4.1 Diseno de interfaces y flujo principal de uso.',
-      '4.2 Diseno de arquitectura preliminar del sistema.',
+      '4.1 Diseño de interfaces y flujo principal de uso.',
+      '4.2 Diseño de arquitectura preliminar del sistema.',
       '4.3 Modelado de datos de usuarios, bicicletas e ingresos y retiros.',
       '4.4 Implementacion del modulo de registro de usuarios.',
       '4.5 Implementacion del modulo de registro de bicicletas.',
@@ -379,7 +379,7 @@ export const desgloseActividades = [
   {
     title: 'Actividad 5 | Integracion y evaluacion final del sistema',
     tasks: [
-      '5.1 Diseno del modulo administrativo web.',
+      '5.1 Diseño del modulo administrativo web.',
       '5.2 Implementacion del historial de movimientos.',
       '5.3 Implementacion del registro de incidencias.',
       '5.4 Implementacion de funcionalidades de trazabilidad y reportes.',
@@ -394,7 +394,7 @@ export const desgloseActividades = [
 export const fasesRuta = [
   {
     period: 'Abril - Julio 2026',
-    focus: 'Definicion de requisitos, diseno UX y desarrollo del MVP.',
+    focus: 'Definicion de requisitos, Diseño UX y desarrollo del MVP.',
   },
   {
     period: 'Agosto - Octubre 2026',
@@ -556,7 +556,7 @@ export const referenciasProyecto = [
 export const creditosVisuales = [
   {
     recurso: 'Logo oficial de la app UBBike',
-    fuente: 'Diseno propio',
+    fuente: 'Diseño propio',
     href: '#inicio',
   },
   {
