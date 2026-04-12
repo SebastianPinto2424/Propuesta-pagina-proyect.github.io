@@ -1,18 +1,18 @@
-﻿---
-import Layout from '../layouts/Layout.astro';
-import EncabezadoSitio from '../components/sections/EncabezadoSitio.astro';
-import SeccionHero from '../components/sections/SeccionHero.astro';
-import SeccionesContenido from '../components/sections/SeccionesContenido.astro';
-import PieSitio from '../components/sections/PieSitio.astro';
+---
+import PlantillaBase from '../layouts/PlantillaBase.astro';
+import EncabezadoSitio from '../components/sitio/EncabezadoSitio.astro';
+import PortadaPropuesta from '../components/propuesta/PortadaPropuesta.astro';
+import ContenidoPropuesta from '../components/propuesta/ContenidoPropuesta.astro';
+import PieSitio from '../components/sitio/PieSitio.astro';
 import { metadatosPagina } from '../data/propuesta';
 import '../styles/propuesta.css';
 ---
 
-<Layout title={metadatosPagina.title} description={metadatosPagina.description}>
+<PlantillaBase titulo={metadatosPagina.titulo} descripcion={metadatosPagina.descripcion}>
   <EncabezadoSitio vistaActual="propuesta" mostrarNavegacionSecciones={true} />
   <main id="inicio">
-    <SeccionHero />
-    <SeccionesContenido />
+    <PortadaPropuesta />
+    <ContenidoPropuesta />
   </main>
   <PieSitio />
-</Layout>
+</PlantillaBase>
