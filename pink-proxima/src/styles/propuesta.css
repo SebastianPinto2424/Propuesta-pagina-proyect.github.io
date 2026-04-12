@@ -2219,10 +2219,13 @@ tbody tr:hover {
 
 .contact-list li {
   color: #d6e4f0;
+  min-width: 0;
 }
 
 .contact-list a {
   color: #8fd1ff;
+  overflow-wrap: anywhere;
+  word-break: break-word;
 }
 
 .footer-grid {
