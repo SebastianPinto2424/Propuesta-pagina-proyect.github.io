@@ -8,6 +8,7 @@
 
 html {
   scroll-padding-top: var(--anchor-offset);
+  scrollbar-gutter: stable;
 }
 
 .site-header {
@@ -115,7 +116,7 @@ html {
 
 .nav-collapsible {
   overflow-x: hidden;
-  overflow-y: auto;
+  overflow-y: hidden;
   max-height: 190px;
   opacity: 1;
   transform: translateY(0);
@@ -1965,6 +1966,7 @@ tbody tr:hover {
 
   .nav-collapsible {
     max-height: 55vh;
+    overflow-y: auto;
   }
 
   .nav-collapsible nav {
