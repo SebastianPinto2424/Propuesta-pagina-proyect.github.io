@@ -1,0 +1,77 @@
+---
+import { enlacesNavegacion } from '../../data/propuesta';
+
+interface PropiedadesEncabezado {
+  vistaActual?: 'propuesta' | 'presentacion';
+  mostrarNavegacionSecciones?: boolean;
+}
+
+const { vistaActual = 'propuesta', mostrarNavegacionSecciones = true } =
+  Astro.props as PropiedadesEncabezado;
+const logoUbbike = `${import.meta.env.BASE_URL}imagenes/ubbike-logo-transparente.png`;
+const enlacePropuesta = `${import.meta.env.BASE_URL}`;
+const enlacePresentacion = `${import.meta.env.BASE_URL}presentacion/`;
+const enlaceMarca = vistaActual === 'presentacion' ? `${enlacePresentacion}#inicio` : '#inicio';
+---
+
+<header class:list={['site-header', mostrarNavegacionSecciones && 'is-collapsed']}>
+  <div class="container nav-top">
+    <a class="brand" href={enlaceMarca}>
+      <img class="brand-logo" src={logoUbbike} alt="Logo UBBike" loading="eager" decoding="async" />
+    </a>
+
+    <nav class="modos-app" aria-label="Apartados principales del sitio">
+      <a class:list={['modo-link', vistaActual === 'propuesta' && 'is-active']} href={enlacePropuesta}>
+        Propuesta
+      </a>
+      <a class:list={['modo-link', vistaActual === 'presentacion' && 'is-active']} href={enlacePresentacion}>
+        Producto UBBike
+      </a>
+    </nav>
+
+    {mostrarNavegacionSecciones && (
+      <button
+        type="button"
+        class="btn-nav-toggle"
+        data-toggle-nav
+        aria-controls="nav-secciones"
+        aria-expanded="false"
+      >
+        Mostrar secciones
+      </button>
+    )}
+  </div>
+
+  {
+    mostrarNavegacionSecciones && (
+      <div class="container nav-collapsible" id="nav-secciones">
+        <nav aria-label="Secciones clave del sitio">
+          {enlacesNavegacion.map((enlace) => (
+            <a href={enlace.href}>{enlace.etiqueta}</a>
+          ))}
+        </nav>
+      </div>
+    )
+  }
+</header>
+
+<script>
+  const encabezado = document.querySelector('.site-header');
+  const botonAlternar = document.querySelector('[data-toggle-nav]');
+  const panelNavegacion = document.getElementById('nav-secciones');
+
+  if (encabezado && botonAlternar && panelNavegacion) {
+    const aplicarEstado = (colapsado: boolean) => {
+      encabezado.classList.toggle('is-collapsed', colapsado);
+      botonAlternar.textContent = colapsado ? 'Mostrar secciones' : 'Ocultar secciones';
+      botonAlternar.setAttribute('aria-expanded', String(!colapsado));
+    };
+
+    botonAlternar.addEventListener('click', () => {
+      const colapsadoActual = encabezado.classList.contains('is-collapsed');
+      aplicarEstado(!colapsadoActual);
+    });
+
+    aplicarEstado(true);
+  }
+</script>

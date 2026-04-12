@@ -1,0 +1,195 @@
+﻿---
+import {
+  diferenciadorPropuesta,
+  alcanceInicial,
+  siguientesEtapas,
+  preguntasComunes,
+  referentesResumen,
+  conclusionReferentes,
+  viabilidadResumen,
+  impactoEsperado,
+  contactoPropuesta,
+  mockupsPropuesta,
+} from '../../data/propuesta';
+import { rutaConBase } from '../../utils/rutas';
+---
+
+<section id="diferenciador" class="section container">
+  <div class="section-head">
+    <p class="tag">Diferenciador</p>
+    <h2>Una propuesta viable para el contexto real de la UBB</h2>
+  </div>
+
+  <article class="card closing-highlight differentiator-card">
+    <p>{diferenciadorPropuesta}</p>
+  </article>
+</section>
+
+<section id="alcance" class="section container">
+  <div class="section-head">
+    <p class="tag">Alcance inicial</p>
+    <h2>Lo que se implementa primero y como evoluciona la propuesta</h2>
+  </div>
+
+  <div class="grid two closing-grid">
+    <article class="card closing-card">
+      <h3>Primera etapa</h3>
+      <ul class="closing-list">
+        {alcanceInicial.map((item) => (
+          <li>{item}</li>
+        ))}
+      </ul>
+    </article>
+
+    <article class="card closing-card">
+      <h3>Etapas siguientes</h3>
+      <ul class="closing-list">
+        {siguientesEtapas.map((item) => (
+          <li>{item}</li>
+        ))}
+      </ul>
+    </article>
+  </div>
+</section>
+
+<section id="resultados" class="section container">
+  <div class="section-head">
+    <p class="tag">Resultados esperados</p>
+    <h2>Resultados esperados para la operacion y gestion del bicicletero UBB</h2>
+  </div>
+
+  <div class="grid two">
+    {viabilidadResumen.map((item) => (
+      <article class="card justification-card">
+        <h3>{item.titulo}</h3>
+        <p>{item.detalle}</p>
+      </article>
+    ))}
+  </div>
+
+  <div class="grid two section-gap results-support-grid">
+    {impactoEsperado.map((item) => (
+      <article class="card impact-card">
+        <h3>{item.metrica}</h3>
+        <p>{item.detalle}</p>
+      </article>
+    ))}
+  </div>
+
+  <article class="card report-preview-card section-gap compact-report-card">
+    <div class="report-preview-layout">
+      <div class="report-preview-copy">
+        <h3>Vista de reportes para gestion</h3>
+        <p>
+          Esta vista muestra la informacion que permite monitorear el servicio y apoyar decisiones
+          institucionales.
+        </p>
+        <div class="report-preview-meta">
+          <p>Permite visualizar de forma simple:</p>
+          <ul>
+            <li>Demanda semanal de ingresos y retiros.</li>
+            <li>Distribucion de uso por tipo de usuario.</li>
+            <li>Base para decisiones operativas de mejora.</li>
+          </ul>
+        </div>
+      </div>
+
+      <figure class="report-preview-media">
+        <img
+          src={rutaConBase(mockupsPropuesta.resultados)}
+          alt="Mockup de reportes administrativos UBBike"
+          loading="lazy"
+          decoding="async"
+        />
+      </figure>
+    </div>
+  </article>
+</section>
+
+<section id="referentes" class="section container">
+  <div class="section-head">
+    <p class="tag">Referentes revisados</p>
+    <h2>Alternativas analizadas y conclusion de viabilidad para UBBike</h2>
+  </div>
+
+  <article class="card referents-card">
+    <p class="referents-intro">
+      Se realizo una revision de soluciones universitarias y plataformas externas para comparar
+      funciones, costos y enfoque operativo aplicable al contexto real de la UBB.
+    </p>
+
+    <div class="referents-grid">
+      {referentesResumen.map((item) => (
+        <article class="referent-item">
+          <h4>{item.nombre}</h4>
+          <p>
+            <strong>Que se reviso:</strong> {item.revision}
+          </p>
+          <p>
+            <strong>Costo para usuarios:</strong> {item.costoUsuario}
+          </p>
+          <p>
+            <strong>Valoracion reportada:</strong> {item.valoracion}
+          </p>
+          <p>
+            <strong>Diferencia con UBBike:</strong> {item.diferencia}
+          </p>
+        </article>
+      ))}
+    </div>
+
+    <article class="referents-conclusion">
+      <p>{conclusionReferentes}</p>
+    </article>
+  </article>
+</section>
+
+<section class="section container">
+  <div class="section-head">
+    <p class="tag">Preguntas comunes</p>
+    <h2>Dudas habituales al evaluar la propuesta</h2>
+  </div>
+
+  <div class="faq-grid">
+    {preguntasComunes.map((item) => (
+      <article class="card faq-card">
+        <h3>{item.pregunta}</h3>
+        <p>{item.respuesta}</p>
+      </article>
+    ))}
+  </div>
+</section>
+
+<section id="contacto" class="section container">
+  <div class="section-head">
+    <p class="tag">Contacto</p>
+    <h2>Contacta para evaluar la implementacion de UBBike</h2>
+  </div>
+
+  <article class="card contact-card">
+    <p>
+      Si te interesa revisar la propuesta en detalle o coordinar una demostracion, puedes
+      contactarme directamente por correo institucional o GitHub.
+    </p>
+
+    <ul class="contact-list">
+      <li>
+        <strong>Correo:</strong>
+        <a href={`mailto:${contactoPropuesta.correo}`}>{contactoPropuesta.correo}</a>
+      </li>
+      <li>
+        <strong>GitHub:</strong>
+        <a href={contactoPropuesta.github} target="_blank" rel="noopener noreferrer">
+          {contactoPropuesta.github}
+        </a>
+      </li>
+    </ul>
+
+    <div class="hero-actions">
+      <a class="btn btn-primary" href={`mailto:${contactoPropuesta.correo}`}>Solicitar reunion</a>
+      <a class="btn btn-outline" href={contactoPropuesta.github} target="_blank" rel="noopener noreferrer">
+        Ver perfil en GitHub
+      </a>
+    </div>
+  </article>
+</section>

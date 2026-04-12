@@ -1,0 +1,136 @@
+﻿---
+import {
+  problemasActuales,
+  solucionTexto,
+  pasosFuncionamiento,
+  beneficiosInstitucion,
+  mockupsPropuesta,
+  continuidadOperativa,
+} from '../../data/propuesta';
+import { rutaConBase } from '../../utils/rutas';
+
+const descripcionesMockupSolucion = [
+  'Pantalla de usuario para consultar estado del bicicletero y operar ingreso o retiro.',
+  'Pantalla de guardia para escaneo QR y validacion rapida en acceso.',
+];
+---
+
+<section id="problema" class="section container">
+  <div class="section-head">
+    <p class="tag">Problema</p>
+    <h2>El proceso actual genera demoras, errores y baja visibilidad operativa</h2>
+  </div>
+  <p class="section-note">
+    Hoy el control de ingreso y retiro depende de registros manuales en papel y del traspaso de
+    informacion entre turnos. Esto limita la velocidad de atencion y la trazabilidad del servicio.
+  </p>
+
+  <div class="grid two">
+    {problemasActuales.map((problema) => (
+      <article class="card problem-card-simple">
+        <h3>{problema.titulo}</h3>
+        <p>{problema.detalle}</p>
+      </article>
+    ))}
+  </div>
+</section>
+
+<section id="solucion" class="section container">
+  <div class="section-head">
+    <p class="tag">Solucion</p>
+    <h2>Una solucion digital adaptada al funcionamiento real del bicicletero UBB</h2>
+  </div>
+
+  <div class="solution-story-grid">
+    <article class="card solution-intro">
+      {solucionTexto.map((parrafo) => (
+        <p>{parrafo}</p>
+      ))}
+    </article>
+
+    <article class="card solution-intro solution-highlight-card">
+      <p class="spotlight-label">Continuidad operativa</p>
+      <h3>El servicio no se detiene ante contingencias</h3>
+      <p>{continuidadOperativa}</p>
+    </article>
+  </div>
+
+  <div class="mockup-grid-two section-gap">
+    {mockupsPropuesta.solucion.map((imagen, index) => (
+      <figure class="card mockup-card-simple solution-mockup-card">
+        <img
+          src={rutaConBase(imagen)}
+          alt={`Mockup de solucion UBBike ${index + 1}`}
+          loading="lazy"
+          decoding="async"
+        />
+        <figcaption class="solution-mockup-caption">
+          {descripcionesMockupSolucion[index] ?? 'Vista clave del flujo operativo UBBike.'}
+        </figcaption>
+      </figure>
+    ))}
+  </div>
+</section>
+
+<section id="como-funciona" class="section container">
+  <div class="section-head">
+    <p class="tag">Como funciona</p>
+    <h2>Flujo simple para operar ingreso y retiro con control asistido</h2>
+  </div>
+
+  <ol class="flow">
+    {pasosFuncionamiento.map((paso, indice) => (
+      <li>
+        <span>{indice + 1}</span>
+        <p>
+          <strong>{paso.titulo}:</strong> {paso.detalle}
+        </p>
+      </li>
+    ))}
+  </ol>
+
+  <div class="mockup-grid-three section-gap flow-mockup-grid">
+    {mockupsPropuesta.flujo.map((imagen, index) => (
+      <figure
+        class="card mockup-card-simple flow-mockup-card"
+        data-step={index === 0 ? '2' : index === 1 ? '3' : ''}
+      >
+        <img
+          src={rutaConBase(imagen)}
+          alt={`Mockup del flujo operativo UBBike ${index + 1}`}
+          loading="lazy"
+          decoding="async"
+        />
+      </figure>
+    ))}
+  </div>
+</section>
+
+<section id="beneficios" class="section container">
+  <div class="section-head">
+    <p class="tag">Beneficios</p>
+    <h2>Beneficios concretos para la operacion universitaria</h2>
+  </div>
+
+  <div class="benefits-grid-layout">
+    <div class="features-grid">
+      {beneficiosInstitucion.map((beneficio) => (
+        <article class="card feature-card">
+          <p class="feature-pill">UBBike</p>
+          <h3>{beneficio.titulo}</h3>
+          <p>{beneficio.detalle}</p>
+        </article>
+      ))}
+    </div>
+
+    <figure class="card benefits-mockup-card">
+      <img
+        src={rutaConBase(mockupsPropuesta.beneficios)}
+        alt="Mockup del panel administrativo UBBike"
+        loading="lazy"
+        decoding="async"
+      />
+      <figcaption>Panel administrativo para seguimiento de operacion</figcaption>
+    </figure>
+  </div>
+</section>

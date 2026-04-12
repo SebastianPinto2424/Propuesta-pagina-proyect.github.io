@@ -1,0 +1,91 @@
+﻿---
+import { funcionalidadesClave, rolesProducto, tecnologiaUsada, enfoqueTecnologico } from '../../data/propuesta';
+import { rutaConBase } from '../../utils/rutas';
+---
+
+<section id="funcionalidades" class="section container">
+  <div class="section-head">
+    <p class="tag">Funcionalidades</p>
+    <h2>Capacidades clave para operar, controlar y escalar UBBike</h2>
+  </div>
+
+  <div class="feature-list-grid">
+    {funcionalidadesClave.map((funcion) => (
+      <article class="card feature-item-simple">
+        <p>{funcion}</p>
+      </article>
+    ))}
+  </div>
+</section>
+
+<section class="section container">
+  <div class="section-head">
+    <p class="tag">Pantallas para cada tipo de usuario</p>
+    <h2>Pantallas por tipo de usuario</h2>
+  </div>
+
+  <div class="role-showcase-list">
+    {rolesProducto.map((rol) => (
+      <article class="card role-showcase-card">
+        <div class="role-showcase-copy">
+          <div class="role-showcase-copy-top">
+            <h3>{rol.rol}</h3>
+            <p>
+              <strong>Objetivo:</strong> {rol.objetivo}
+            </p>
+            <p>
+              <strong>Foco:</strong> {rol.foco}
+            </p>
+            <p>
+              <strong>Utilidad:</strong> {rol.utilidad}
+            </p>
+          </div>
+
+          <article class="role-showcase-utility">
+            <h4>Utilidad para la operacion</h4>
+            <ul>
+              {rol.accionesClave.map((accion) => (
+                <li>{accion}</li>
+              ))}
+            </ul>
+          </article>
+        </div>
+
+        <div class="role-showcase-media">
+          {rol.imagenesClave.map((imagen, index) => (
+            <figure class="role-preview">
+              <img
+                src={rutaConBase(imagen.ruta)}
+                alt={`Mockup ${rol.rol} ${index + 1}`}
+                loading="lazy"
+                decoding="async"
+              />
+              <figcaption>{imagen.descripcion}</figcaption>
+            </figure>
+          ))}
+        </div>
+      </article>
+    ))}
+  </div>
+</section>
+
+<section id="tecnologia" class="section container">
+  <div class="section-head">
+    <p class="tag">Tecnologia utilizada</p>
+    <h2>Base tecnica pensada para una implementacion real y escalable</h2>
+  </div>
+
+  <article class="card section-note-card">
+    <p>{enfoqueTecnologico}</p>
+  </article>
+
+  <div class="tech-grid section-gap">
+    {tecnologiaUsada.map((item) => (
+      <article class="card tech-card">
+        <img src={rutaConBase(item.logo)} alt={`Logo de ${item.nombre}`} loading="lazy" decoding="async" />
+        <h3>{item.nombre}</h3>
+        <p>{item.descripcion}</p>
+      </article>
+    ))}
+  </div>
+</section>

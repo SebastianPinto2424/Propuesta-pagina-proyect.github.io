@@ -1,0 +1,86 @@
+﻿---
+import { indicadoresPortada, sellosPortada, mockupsPropuesta, pruebaSocial } from '../../data/propuesta';
+import { rutaConBase } from '../../utils/rutas';
+---
+
+<section id="inicio" class="hero container">
+  <div class="hero-grid">
+    <div class="hero-copy">
+      <div class="hero-badge-row">
+        <p class="eyebrow">Propuesta app UBBike</p>
+        <span class="hero-pill">Control QR + trazabilidad operativa</span>
+      </div>
+
+      <h1>UBBike: control y trazabilidad para bicicleteros UBB</h1>
+      <p class="lead">
+        Una solucion movil para registrar ingresos y retiros de bicicletas con codigo QR,
+        validacion asistida por guardias y trazabilidad en tiempo real.
+      </p>
+      <p class="status-note">Enfoque orientado a implementacion real y escalamiento institucional.</p>
+
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#solucion">Ver propuesta</a>
+      </div>
+
+      <ul class="hero-trust-list">
+        {sellosPortada.map((sello) => (
+          <li>{sello}</li>
+        ))}
+      </ul>
+    </div>
+
+    <div class="hero-media">
+      <figure class="hero-photo">
+        <img
+          src={rutaConBase('imagenes/bicicletero-real-ubb.png')}
+          alt="Bicicletero real de la Universidad del Bio-Bio"
+          loading="eager"
+          decoding="async"
+        />
+        <figcaption class="hero-floating-chip hero-chip-primary">Bicicletero real UBB</figcaption>
+        <figcaption class="hero-floating-chip hero-chip-secondary">Operacion con QR</figcaption>
+        <figcaption class="hero-floating-chip hero-chip-tertiary">Flujo asistido por guardia</figcaption>
+      </figure>
+
+      <article class="hero-overlay card">
+        <img
+          src={rutaConBase(mockupsPropuesta.portada)}
+          alt="Mockup de app UBBike para operacion de QR"
+          loading="lazy"
+          decoding="async"
+        />
+        <div class="hero-overlay-copy">
+          <p class="hero-overlay-eyebrow">Flujo de uso</p>
+          <p class="hero-overlay-note">
+            El usuario presenta su QR y el guardia confirma el ingreso o retiro en segundos.
+          </p>
+        </div>
+      </article>
+    </div>
+  </div>
+
+  <div class="hero-summary-grid">
+    {indicadoresPortada.map((item) => (
+      <article class="hero-summary-card">
+        <span>{item.etiqueta}</span>
+        <strong>{item.valor}</strong>
+      </article>
+    ))}
+  </div>
+</section>
+
+<section class="section container proof-section">
+  <div class="section-head">
+    <p class="tag">Fundamento de la propuesta</p>
+    <h2>Por que UBBike es viable para la UBB</h2>
+  </div>
+
+  <div class="launch-overview-grid">
+    {pruebaSocial.map((item) => (
+      <article class="card launch-overview-card">
+        <h3>{item.titulo}</h3>
+        <p>{item.detalle}</p>
+      </article>
+    ))}
+  </div>
+</section>

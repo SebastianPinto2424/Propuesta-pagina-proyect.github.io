@@ -1,13 +1,15 @@
 ﻿---
-interface Props {
-  title?: string;
-  description?: string;
+interface PropiedadesPlantilla {
+  titulo?: string;
+  descripcion?: string;
 }
 
+const urlBase = import.meta.env.BASE_URL;
+
 const {
-  title = 'UBBike | Propuesta de Proyecto',
-  description = 'Aplicacion multiplataforma para control y trazabilidad del ingreso y retiro de bicicletas en los bicicleteros de la Universidad del Bio-Bio.',
-} = Astro.props;
+  titulo = 'UBBike | Propuesta de Proyecto',
+  descripcion = 'Aplicacion movil multiplataforma para control y trazabilidad del ingreso y retiro de bicicletas en los bicicleteros de la Universidad del Bio-Bio.',
+} = Astro.props as PropiedadesPlantilla;
 ---
 
 <!doctype html>
@@ -21,11 +23,11 @@ const {
       href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Sora:wght@600;700;800&display=swap"
       rel="stylesheet"
     />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="icon" href="/favicon.ico" />
+    <link rel="icon" type="image/svg+xml" href={`${urlBase}favicon.svg`} />
+    <link rel="icon" href={`${urlBase}favicon.ico`} />
     <meta name="generator" content={Astro.generator} />
-    <meta name="description" content={description} />
-    <title>{title}</title>
+    <meta name="description" content={descripcion} />
+    <title>{titulo}</title>
   </head>
   <body>
     <slot />
