@@ -2224,8 +2224,14 @@ tbody tr:hover {
 }
 
 .footer-grid {
-  display: grid;
+  display: flex;
+  flex-wrap: wrap;
   gap: 0.32rem;
+}
+
+.footer-line {
+  margin: 0;
+  line-height: 1.5;
 }
 
 .footer-grid a {

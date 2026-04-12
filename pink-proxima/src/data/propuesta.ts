@@ -1,17 +1,17 @@
 ﻿export const metadatosPagina = {
   titulo: 'UBBike | Propuesta App',
   descripcion:
-    'Propuesta app UBBike para digitalizar el control de ingreso y retiro de bicicletas en la Universidad del Bio-Bio.',
+    'Propuesta app UBBike para digitalizar el control de ingreso y retiro de bicicletas en la Universidad del Bío-Bío.',
 };
 
 export const enlacesNavegacion = [
   { href: '#inicio', etiqueta: 'Inicio' },
   { href: '#problema', etiqueta: 'Problema' },
-  { href: '#solucion', etiqueta: 'Solucion' },
-  { href: '#como-funciona', etiqueta: 'Como funciona' },
+  { href: '#solucion', etiqueta: 'Solución' },
+  { href: '#como-funciona', etiqueta: 'Cómo funciona' },
   { href: '#beneficios', etiqueta: 'Beneficios' },
   { href: '#funcionalidades', etiqueta: 'Funcionalidades' },
-  { href: '#tecnologia', etiqueta: 'Tecnologia' },
+  { href: '#tecnologia', etiqueta: 'Tecnología' },
   { href: '#diferenciador', etiqueta: 'Diferenciador' },
   { href: '#alcance', etiqueta: 'Alcance inicial' },
   { href: '#resultados', etiqueta: 'Resultados esperados' },
@@ -21,29 +21,29 @@ export const enlacesNavegacion = [
 
 export const indicadoresPortada = [
   { etiqueta: 'Registro', valor: 'Digital y centralizado' },
-  { etiqueta: 'Acceso', valor: 'QR + validacion asistida' },
-  { etiqueta: 'Roles', valor: 'Usuario, guardia y administracion' },
-  { etiqueta: 'Implementacion', valor: 'Por etapas y con continuidad operativa' },
+  { etiqueta: 'Acceso', valor: 'QR + validación asistida' },
+  { etiqueta: 'Roles', valor: 'Usuario, guardia y administración' },
+  { etiqueta: 'Implementación', valor: 'Por etapas y con continuidad operativa' },
 ];
 
 export const sellosPortada = [
   'Registro digital centralizado para ingreso y retiro.',
-  'Validacion operativa asistida por guardias en terreno.',
+  'Validación operativa asistida por guardias en terreno.',
   'Trazabilidad por usuario, bicicleta, fecha y turno.',
 ];
 
 export const pruebaSocial = [
   {
     titulo: 'Contexto real UBB',
-    detalle: 'Definido para el flujo actual de bicicleteros y turnos de operacion en campus.',
+    detalle: 'Definido para el flujo actual de bicicleteros y turnos de operación en campus.',
   },
   {
-    titulo: 'Implementacion viable',
-    detalle: 'Primera etapa util sin depender de hardware especializado nuevo.',
+    titulo: 'Implementación viable',
+    detalle: 'Primera etapa útil sin depender de hardware especializado nuevo.',
   },
   {
     titulo: 'Valor institucional',
-    detalle: 'Mejora control, tiempos de atencion y trazabilidad del servicio.',
+    detalle: 'Mejora control, tiempos de atención y trazabilidad del servicio.',
   },
 ];
 
@@ -51,17 +51,17 @@ export const problemasActuales = [
   {
     titulo: 'Registro manual en papel',
     detalle:
-      'Cada ingreso y retiro se anota manualmente, lo que ralentiza la atencion en horarios de alta demanda.',
+      'Cada ingreso y retiro se anota manualmente, lo que ralentiza la atención en horarios de alta demanda.',
   },
   {
     titulo: 'Dependencia del guardia de turno',
     detalle:
-      'La continuidad del control depende del traspaso de informacion entre turnos y registros dispersos.',
+      'La continuidad del control depende del traspaso de información entre turnos y registros dispersos.',
   },
   {
     titulo: 'Sin trazabilidad centralizada',
     detalle:
-      'No existe una consulta rapida del estado del bicicletero ni del historial completo de movimientos.',
+      'No existe una consulta rápida del estado del bicicletero ni del historial completo de movimientos.',
   },
   {
     titulo: 'Riesgo de error humano',
@@ -71,25 +71,25 @@ export const problemasActuales = [
 ];
 
 export const solucionTexto = [
-  'UBBike propone una app movil para registrar usuarios y bicicletas, generar codigos QR para ingreso y retiro, y mantener validacion asistida por guardias.',
+  'Se propone la app UBBike para registrar usuarios y bicicletas, generar códigos QR para ingreso y retiro, y mantener validación asistida por guardias.',
   'Cada movimiento queda almacenado digitalmente para consulta operativa y administrativa.',
   'La propuesta conserva el control humano, aprovecha infraestructura actual y permite evolucionar por etapas.',
 ];
 
 export const continuidadOperativa =
-  'Cuando un usuario no puede mostrar QR por bateria o conectividad, se contempla respaldo manual por busqueda asistida para no detener la operacion.';
+  'Cuando un usuario no puede mostrar QR por batería o conectividad, se contempla respaldo manual por búsqueda asistida para no detener la operación.';
 
 export const pasosFuncionamiento = [
   {
-    titulo: 'Registro unico del usuario',
+    titulo: 'Registro único del usuario',
     detalle: 'El usuario se registra una sola vez y asocia su bicicleta al sistema.',
   },
   {
-    titulo: 'Generacion de QR',
-    detalle: 'La app emite un codigo QR para cada operacion de ingreso o retiro.',
+    titulo: 'Generación de QR',
+    detalle: 'La app emite un código QR para cada operación de ingreso o retiro.',
   },
   {
-    titulo: 'Validacion por guardia',
+    titulo: 'Validación por guardia',
     detalle: 'El guardia escanea el QR y verifica la correspondencia usuario-bicicleta.',
   },
   {
@@ -101,7 +101,7 @@ export const pasosFuncionamiento = [
 
 export const beneficiosInstitucion = [
   {
-    titulo: 'Reduce tiempos de atencion',
+    titulo: 'Reduce tiempos de atención',
     detalle: 'Agiliza ingreso y retiro de bicicletas, especialmente en horas de mayor demanda.',
   },
   {
@@ -114,28 +114,28 @@ export const beneficiosInstitucion = [
   },
   {
     titulo: 'Mejora continuidad operativa',
-    detalle: 'Facilita control entre turnos con informacion digital disponible en un solo punto.',
+    detalle: 'Facilita control entre turnos con información digital disponible en un solo punto.',
   },
   {
-    titulo: 'Habilita gestion administrativa',
+    titulo: 'Habilita gestión administrativa',
     detalle: 'Entrega base para paneles, incidencias y reportes de uso del servicio.',
   },
   {
     titulo: 'Escala por etapas',
-    detalle: 'Parte con alcance inicial util y evoluciona sin romper la operacion diaria.',
+    detalle: 'Parte con alcance inicial útil y evoluciona sin romper la operación diaria.',
   },
 ];
 
 export const funcionalidadesClave = [
   'Registro de usuarios y bicicletas',
-  'Generacion y renovacion de QR',
-  'Validacion asistida por guardia',
+  'Generación y renovación de QR',
+  'Validación asistida por guardia',
   'Control de ingreso y retiro',
   'Historial de movimientos',
   'Respaldo manual operativo',
-  'Panel de administracion',
+  'Panel de administración',
   'Reportes de demanda',
-  'Gestion de incidencias',
+  'Gestión de incidencias',
   'Trazabilidad integral',
 ];
 
@@ -144,30 +144,30 @@ export const tecnologiaUsada = [
     nombre: 'Flutter',
     logo: 'logos/flutter.svg',
     descripcion:
-      'Framework principal para construir una app movil multiplataforma, manteniendo una experiencia coherente en Android y iOS.',
+      'Framework principal para construir una app móvil multiplataforma, manteniendo una experiencia coherente en Android y iOS.',
   },
   {
     nombre: 'Dart',
     logo: 'logos/dart.svg',
     descripcion:
-      'Lenguaje utilizado para la logica de negocio y la interfaz, facilitando evolucion por etapas de la propuesta.',
+      'Lenguaje utilizado para la lógica de negocio y la interfaz, facilitando evolución por etapas de la propuesta.',
   },
 ];
 
 export const enfoqueTecnologico =
-  'La tecnologia seleccionada permite construir una aplicacion clara para usuario, guardia y administracion, con base solida para escalar funciones de control y reportes.';
+  'La tecnología seleccionada permite construir una aplicación clara para usuario, guardia y administración, con base sólida para escalar funciones de control y reportes.';
 
 export const rolesProducto = [
   {
     rol: 'Usuario',
-    objetivo: 'Operar ingreso y retiro de forma rapida, clara y segura.',
+    objetivo: 'Operar ingreso y retiro de forma rápida, clara y segura.',
     foco: 'Registro, bicicletas asociadas y QR operativo.',
     utilidad:
-      'Permite acceso rapido al servicio sin repetir datos en cada ingreso o retiro de bicicleta.',
+      'Permite acceso rápido al servicio sin repetir datos en cada ingreso o retiro de bicicleta.',
     accionesClave: [
       'Consultar estado del bicicletero antes de llegar.',
       'Presentar QR vigente para ingreso o retiro en pocos segundos.',
-      'Revisar ultimo movimiento validado desde la app.',
+      'Revisar último movimiento validado desde la app.',
     ],
     imagenesClave: [
       {
@@ -176,19 +176,19 @@ export const rolesProducto = [
       },
       {
         ruta: 'imagenes/mockups/mockup_usuario_qr.png',
-        descripcion: 'Codigo QR listo para validar ingreso o retiro de forma rapida.',
+        descripcion: 'Código QR listo para validar ingreso o retiro de forma rápida.',
       },
     ],
   },
   {
     rol: 'Guardia',
     objetivo: 'Validar operaciones en terreno con control asistido.',
-    foco: 'Escaneo QR, verificacion y registro de incidencia.',
+    foco: 'Escaneo QR, verificación y registro de incidencia.',
     utilidad:
-      'Facilita validacion operativa en terreno y reduce errores de registro en horarios de alta demanda.',
+      'Facilita validación operativa en terreno y reduce errores de registro en horarios de alta demanda.',
     accionesClave: [
       'Escanear QR y confirmar identidad usuario-bicicleta.',
-      'Registrar ingreso o retiro con confirmacion inmediata.',
+      'Registrar ingreso o retiro con confirmación inmediata.',
       'Reportar incidencias para trazabilidad operativa.',
     ],
     imagenesClave: [
@@ -198,25 +198,25 @@ export const rolesProducto = [
       },
       {
         ruta: 'imagenes/mockups/mockup_guardia_validacion.png',
-        descripcion: 'Confirmacion de ingreso o retiro con datos del usuario y bicicleta.',
+        descripcion: 'Confirmación de ingreso o retiro con datos del usuario y bicicleta.',
       },
     ],
   },
   {
-    rol: 'Administracion',
-    objetivo: 'Monitorear operacion y apoyar decisiones con datos.',
+    rol: 'Administración',
+    objetivo: 'Monitorear operación y apoyar decisiones con datos.',
     foco: 'Panel operativo, historial y reportes de servicio.',
     utilidad:
       'Entrega visibilidad diaria del servicio para planificar mejoras y tomar decisiones con respaldo.',
     accionesClave: [
-      'Supervisar demanda, ocupacion e incidencias por turno.',
+      'Supervisar demanda, ocupación e incidencias por turno.',
       'Consultar historial filtrable de movimientos registrados.',
-      'Analizar reportes para ajustar la operacion del bicicletero.',
+      'Analizar reportes para ajustar la operación del bicicletero.',
     ],
     imagenesClave: [
       {
         ruta: 'imagenes/mockups/mockup_admin_dashboard.png',
-        descripcion: 'Panel operativo con indicadores de demanda y ocupacion.',
+        descripcion: 'Panel operativo con indicadores de demanda y ocupación.',
       },
       {
         ruta: 'imagenes/mockups/mockup_admin_movimientos.png',
@@ -227,51 +227,51 @@ export const rolesProducto = [
 ];
 
 export const diferenciadorPropuesta =
-  'UBBike no requiere infraestructura inteligente dedicada para iniciar. Se adapta al flujo real de la UBB, reutiliza los bicicleteros actuales y mantiene la validacion del guardia como parte del control operativo. Esto permite una implementacion realista y sostenible para la institucion.';
+  'UBBike no requiere infraestructura inteligente dedicada para iniciar. Se adapta al flujo real de la UBB, reutiliza los bicicleteros actuales y mantiene la validación del guardia como parte del control operativo. Esto permite una implementación realista y sostenible para la institución.';
 
 export const alcanceInicial = [
   'Registro de usuarios.',
   'Registro de bicicletas.',
-  'Generacion y uso de QR para ingreso y retiro.',
-  'Validacion asistida de operaciones.',
-  'Control basico del estado del bicicletero.',
+  'Generación y uso de QR para ingreso y retiro.',
+  'Validación asistida de operaciones.',
+  'Control básico del estado del bicicletero.',
 ];
 
 export const siguientesEtapas = [
   'Historial avanzado por actor.',
   'Incidencias y seguimiento operativo.',
-  'Reportes administrativos periodicos.',
+  'Reportes administrativos periódicos.',
   'Indicadores de demanda por horario.',
-  'Trazabilidad ampliada para gestion institucional.',
+  'Trazabilidad ampliada para gestión institucional.',
 ];
 
 export const preguntasComunes = [
   {
-    pregunta: 'Se reemplaza el rol del guardia?',
+    pregunta: '¿Se reemplaza el rol del guardia?',
     respuesta:
-      'No. UBBike mantiene validacion asistida por guardia y la fortalece con registro digital y mejor visibilidad operativa.',
+      'No. UBBike mantiene validación asistida por guardia y la fortalece con registro digital y mejor visibilidad operativa.',
   },
   {
-    pregunta: 'Se necesita equipamiento especial para comenzar?',
+    pregunta: '¿Se necesita equipamiento especial para comenzar?',
     respuesta:
-      'No para la etapa inicial. Se aprovecha la infraestructura actual y dispositivos moviles de operacion.',
+      'No para la etapa inicial. Se aprovecha la infraestructura actual y dispositivos móviles de operación.',
   },
   {
-    pregunta: 'Que valor entrega en el corto plazo?',
+    pregunta: '¿Qué valor entrega en el corto plazo?',
     respuesta:
-      'Menor tiempo de atencion, menos errores manuales y trazabilidad centralizada desde la primera etapa.',
+      'Menor tiempo de atención, menos errores manuales y trazabilidad centralizada desde la primera etapa.',
   },
 ];
 
 export const referentesResumen = [
   {
-    nombre: 'UdeCMovil (Universidad de Concepcion)',
+    nombre: 'UdeCMovil (Universidad de Concepción)',
     revision:
       'Sistema institucional con enrolamiento y QR temporal para acceso a bicicleteros cerrados.',
     costoUsuario: 'Sin costo para la comunidad interna de la universidad.',
     valoracion: 'App Store: 2.3 de 5, con 85 calificaciones.',
     diferencia:
-      'UBBike se enfoca especificamente en control de ingreso/retiro, validacion por guardia e incidencias.',
+      'UBBike se enfoca específicamente en control de ingreso/retiro, validación por guardia e incidencias.',
   },
   {
     nombre: 'UH Go + Bikeep (University of Houston)',
@@ -287,8 +287,8 @@ export const referentesResumen = [
     revision:
       'Programa universitario de almacenamiento en bike locker y bike cage, con enfoque de arriendo.',
     costoUsuario:
-      'Tarifas publicadas: deposito US$50, locker US$12/mes, bike cage US$10/mes, verano US$36.',
-    valoracion: 'No se reporta una app equivalente con calificacion publica comparable.',
+      'Tarifas publicadas: depósito US$50, locker US$12/mes, bike cage US$10/mes, verano US$36.',
+    valoracion: 'No se reporta una app equivalente con calificación pública comparable.',
     diferencia:
       'UBBike prioriza control institucional con QR y trazabilidad, sin enfoque principal de cobro por estacionamiento.',
   },
@@ -296,15 +296,15 @@ export const referentesResumen = [
     nombre: 'Bikeep plataforma comercial',
     revision:
       'Plataforma comercial con infraestructura inteligente y modelos de cobro configurables por operador.',
-    costoUsuario: 'Tarifas finales variables segun operador; no existe tarifa publica universal.',
+    costoUsuario: 'Tarifas finales variables según operador; no existe tarifa pública universal.',
     valoracion: 'App Store: 3.8 de 5, con 17 valoraciones.',
     diferencia:
-      'UBBike apunta a una solucion institucional ajustada al flujo real UBB, con control operativo asistido.',
+      'UBBike apunta a una solución institucional ajustada al flujo real UBB, con control operativo asistido.',
   },
 ];
 
 export const conclusionReferentes =
-  'Con base en la revision realizada, la propuesta actual de UBBike es la alternativa mas viable para la UBB, porque se adapta al contexto operativo real del campus, mantiene el control asistido por guardias y reutiliza la infraestructura existente.';
+  'Con base en la revisión realizada, la propuesta actual de UBBike es la alternativa más viable para la UBB, porque se adapta al contexto operativo real del campus, mantiene el control asistido por guardias y reutiliza la infraestructura existente.';
 
 export const viabilidadResumen = [
   {
@@ -312,27 +312,27 @@ export const viabilidadResumen = [
     detalle: 'El proceso actual en papel genera demoras, errores y baja trazabilidad.',
   },
   {
-    titulo: 'Encaje con la operacion UBB',
-    detalle: 'La solucion considera turnos, validacion en terreno y continuidad del servicio.',
+    titulo: 'Encaje con la operación UBB',
+    detalle: 'La solución considera turnos, validación en terreno y continuidad del servicio.',
   },
   {
-    titulo: 'Implementacion por etapas',
-    detalle: 'Permite partir con alcance inicial y ampliar funcionalidades de gestion progresivamente.',
+    titulo: 'Implementación por etapas',
+    detalle: 'Permite partir con alcance inicial y ampliar funcionalidades de gestión progresivamente.',
   },
   {
     titulo: 'Sustento para decisiones',
-    detalle: 'Entrega informacion util para control, reportes y mejora continua del servicio.',
+    detalle: 'Entrega información útil para control, reportes y mejora continua del servicio.',
   },
 ];
 
 export const impactoEsperado = [
   {
     metrica: 'Rapidez operativa',
-    detalle: 'Disminucion de tiempos de atencion en ingreso y retiro.',
+    detalle: 'Disminución de tiempos de atención en ingreso y retiro.',
   },
   {
     metrica: 'Menor error humano',
-    detalle: 'Datos mas consistentes al reducir registros manuales.',
+    detalle: 'Datos más consistentes al reducir registros manuales.',
   },
   {
     metrica: 'Mayor trazabilidad',
@@ -340,7 +340,7 @@ export const impactoEsperado = [
   },
   {
     metrica: 'Mejor continuidad del servicio',
-    detalle: 'Informacion centralizada para cambios de turno y gestion diaria.',
+    detalle: 'Información centralizada para cambios de turno y gestión diaria.',
   },
 ];
 
