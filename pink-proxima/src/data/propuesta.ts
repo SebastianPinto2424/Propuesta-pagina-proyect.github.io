@@ -308,20 +308,20 @@ export const conclusionReferentes =
 
 export const viabilidadResumen = [
   {
-    titulo: 'Problema real y visible',
-    detalle: 'El proceso actual en papel genera demoras, errores y baja trazabilidad.',
+    titulo: 'Reducción de tiempos de atención',
+    detalle: 'Se espera agilizar el ingreso y retiro de bicicletas, especialmente en horas punta.',
   },
   {
-    titulo: 'Encaje con la operación UBB',
-    detalle: 'La solución considera turnos, validación en terreno y continuidad del servicio.',
+    titulo: 'Disminución de errores de registro',
+    detalle: 'Se espera mejorar la consistencia de datos al reemplazar el registro manual en papel.',
   },
   {
-    titulo: 'Implementación por etapas',
-    detalle: 'Permite partir con alcance inicial y ampliar funcionalidades de gestión progresivamente.',
+    titulo: 'Mayor trazabilidad operativa',
+    detalle: 'Se espera contar con seguimiento por usuario, bicicleta, guardia, fecha y horario.',
   },
   {
-    titulo: 'Sustento para decisiones',
-    detalle: 'Entrega información útil para control, reportes y mejora continua del servicio.',
+    titulo: 'Mejor control y continuidad del servicio',
+    detalle: 'Se espera facilitar la gestión entre turnos y la toma de decisiones con información centralizada.',
   },
 ];
 
