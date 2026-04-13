@@ -8,7 +8,7 @@ Landing page en Astro para presentar la propuesta de control y trazabilidad del 
 - npm 10 o superior
 - Git
 
-## Instalacion
+## Instalación
 
 ```bash
 git clone https://github.com/SebastianPinto2424/Propuesta-pagina-proyect.github.io.git
@@ -16,7 +16,7 @@ cd Propuesta-pagina-proyect.github.io/pink-proxima
 npm install
 ```
 
-## Ejecucion local
+## Ejecución local
 
 ```bash
 npm run dev
@@ -28,11 +28,11 @@ Abrir en navegador:
 http://localhost:4321/Propuesta-pagina-proyect.github.io/
 ```
 
-## Comandos utiles
+## Comandos útiles
 
 ```bash
 npm run dev      # desarrollo
-npm run build    # build de produccion
+npm run build    # build de producción
 npm run preview  # vista previa de build
 ```
 
@@ -57,6 +57,5 @@ Propuesta-pagina-proyect.github.io/
 
 ## Notas
 
-- Pagina principal: `pink-proxima/src/pages/index.astro`
+- Página principal: `pink-proxima/src/pages/index.astro`
 - Apartado de producto: `pink-proxima/src/pages/presentacion.astro`
-

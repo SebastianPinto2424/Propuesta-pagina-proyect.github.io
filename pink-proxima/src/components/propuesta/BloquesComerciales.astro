@@ -13,6 +13,9 @@ const descripcionesMockupSolucion = [
   'Pantalla de usuario para consultar estado del bicicletero y operar ingreso o retiro.',
   'Pantalla de guardia para escaneo QR y validación rápida en acceso.',
 ];
+
+const numerosPasoMockupFlujo = ['2', '3', ''];
+const obtenerNumeroPasoMockup = (indice: number) => numerosPasoMockupFlujo[indice] ?? '';
 ---
 
 <section id="problema" class="section container">
@@ -56,16 +59,16 @@ const descripcionesMockupSolucion = [
   </div>
 
   <div class="mockup-grid-two section-gap">
-    {mockupsPropuesta.solucion.map((imagen, index) => (
+    {mockupsPropuesta.solucion.map((imagen, indice) => (
       <figure class="card mockup-card-simple solution-mockup-card">
         <img
           src={rutaConBase(imagen)}
-          alt={`Mockup de solución UBBike ${index + 1}`}
+          alt={`Mockup de solución UBBike ${indice + 1}`}
           loading="lazy"
           decoding="async"
         />
         <figcaption class="solution-mockup-caption">
-          {descripcionesMockupSolucion[index] ?? 'Vista clave del flujo operativo UBBike.'}
+          {descripcionesMockupSolucion[indice] ?? 'Vista clave del flujo operativo UBBike.'}
         </figcaption>
       </figure>
     ))}
@@ -90,14 +93,11 @@ const descripcionesMockupSolucion = [
   </ol>
 
   <div class="mockup-grid-three section-gap flow-mockup-grid">
-    {mockupsPropuesta.flujo.map((imagen, index) => (
-      <figure
-        class="card mockup-card-simple flow-mockup-card"
-        data-step={index === 0 ? '2' : index === 1 ? '3' : ''}
-      >
+    {mockupsPropuesta.flujo.map((imagen, indice) => (
+      <figure class="card mockup-card-simple flow-mockup-card" data-step={obtenerNumeroPasoMockup(indice)}>
         <img
           src={rutaConBase(imagen)}
-          alt={`Mockup del flujo operativo UBBike ${index + 1}`}
+          alt={`Mockup del flujo operativo UBBike ${indice + 1}`}
           loading="lazy"
           decoding="async"
         />
