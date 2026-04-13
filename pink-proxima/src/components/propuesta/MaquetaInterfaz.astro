@@ -52,11 +52,11 @@ import { rutaConBase } from '../../utils/rutas';
         </div>
 
         <div class="role-showcase-media">
-          {rol.imagenesClave.map((imagen, index) => (
+          {rol.imagenesClave.map((imagen, indice) => (
             <figure class="role-preview">
               <img
                 src={rutaConBase(imagen.ruta)}
-                alt={`Mockup ${rol.rol} ${index + 1}`}
+                alt={`Mockup ${rol.rol} ${indice + 1}`}
                 loading="lazy"
                 decoding="async"
               />
